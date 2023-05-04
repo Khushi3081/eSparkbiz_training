@@ -48,19 +48,29 @@ const addData = async(req,res)=> {
             console.log(error.message);
         }
     }
-    
+   
     const updateData = async (req,res) =>{
         try{
-        const id = req.params.id;
-        const data = await teaminfo.update(req.body,{
-            where:{
-                id:id
-            }
-        },{
-            include:[{
-                model:playerinfo
-            }]
+        const ids = req.params.id;
+        const findData = await teaminfo.findByPk(ids,{
+            include:playerinfo
         })
+        console.log(findData);
+        // console.log(findData.playerinfos);
+        const updateData = findData.playerinfos.find(playerinfo => ids == playerinfo.teaminfoId);
+
+        console.log("playerinfo",playerinfo.id);
+        console.log(playerinfo.teaminfoId);
+        findData.teamName =req.body.teamName;
+        findData.noOfPlayer =req.body.noOfPlayer;
+        findData.teamType =req.body.teamType;
+        
+        updateData.playerName =req.body.playerinfos.playerName;
+        updateData.playerEmail =req.body.playerinfos.playerEmail;
+        updateData.playerGame =req.body.playerinfos.playerGame;
+        const data = await findData.save();
+        const data2 = await updateData.save();
+
         res.send(data);
         }
         catch(error){

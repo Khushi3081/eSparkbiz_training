@@ -4,10 +4,10 @@ const commentinfo = require("../models").commentInfo;
 const addData = async (req, res) => {
   console.log(req.body);
   try {
-    const data = await imageinfo.scope('addData').create(
+    const data = await imageinfo.create(
       {
         imageName: req.body.imageName,
-        imageURL: req.body.imageURL,
+        imageType: req.body.imageType,
         commentInfos: req.body.commentInfos,
       },
       {
@@ -37,52 +37,33 @@ const getAllData = async (req, res) => {
   }
 };
 const updateData = async (req, res) => {
-  // const id = req.params.id;
-  // const data = await imageinfo.update({
-  //     imageName:req.body.imageName,
-  //     imageType:req.body.imageType,
-  //     commentInfos:req.body.commentInfos
-  // },{
-  //     where:{
-  //         id:id
-  //     }
-  // },{
-  //     include:[{
-  //     model:commentinfo
-  //     }]
-  // })
-  // res.send(data);
-  var updateProfile = { 
-    
-      imageName: "laugh",
-      imageURL: "laugh.png",
-      commentInfos:{    
-      commentName: "beautyful",
-      commentType: "image" 
+  try {
+    const ids = req.params.id;
+    const findData = await imageinfo.findOne({
+      where: {
+        id: ids,
+      },
+      include: [
+        {
+          model: commentinfo,
+        },
+      ],
+    });
+    const updateData = findData.commentInfos.find(
+      (commentInfo) => ids == commentInfo.commentTableId
+    );
+    findData.imageName = req.body.imageName;
+    findData.imageURL = req.body.imageURL;
+    updateData.commentName = req.body.commentInfos.commentName;
+    const data = await findData.save();
+    const data2 = await updateData.save();
+    res.send(data);
+  } catch (error) {
+    console.log(error.message);
   }
-}
-  var filter = {
-    where: {
-      id: req.params.id,
-    },
-    include: [{ model: commentinfo }],
-  };
-
-  imageinfo.findOne(filter).then(function (e) {
-    if (e) {
-        console.log(e.commentInfos);
-      return e.commentInfos.updateAttributes(updateProfile).then(function (
-        result
-      ) {
-        console.log(result);
-
-        return result;
-      });
-    } else {
-      throw new Error("no such product type id exist to update");
-    }
-  });
 };
+
+
 const deleteData = async (req, res) => {
   try{
   const id = req.params.id;

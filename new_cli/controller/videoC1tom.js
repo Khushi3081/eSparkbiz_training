@@ -37,46 +37,35 @@ const getAllData = async (req, res) => {
   }
 };
 const updateData = async (req, res) => {
-  // const id = req.params.id;
-  // const data = await videoinfo.update({
-  //     videoName:req.body.videoName,
-  //     videoType:req.body.videoType,
-  //     commentInfos:req.body.commentInfos
-  // },{
-  //     where:{
-  //         id:id
-  //     }
-  // },{
-  //     include:[{
-  //     model:commentinfo
-  //     }]
-  // })
-  // res.send(data);
-  var updateProfile = { 
-    "commentName": "beautyful",
-    "commentType": "video" };
-  var filter = {
-    where: {
-      id: req.params.id,
-    },
-    include: [{ model: commentinfo }],
-  };
-
-  videoinfo.findOne(filter).then(function (e) {
-    if (e) {
-        console.log(e.commentInfos);
-      return e.commentInfos.updateAttributes(updateProfile).then(function (
-        result
-      ) {
-        console.log(result);
-
-        return result;
-      });
-    } else {
-      throw new Error("no such product type id exist to update");
-    }
-  });
+  try {
+    const ids = req.params.id;
+    const findData = await videoinfo.findOne({
+      where: {
+        id: ids,
+      },
+      include: [
+        {
+          model: commentinfo,
+        },
+      ],
+    });
+    console.log(findData);
+    // console.log(findData.playerinfos);
+    const updateData = findData.commentInfos.find(
+      (commentInfo) => ids == commentInfo.commentTableId
+    );
+    findData.videoName = req.body.videoName;
+    findData.videoType = req.body.videoType;
+    updateData.commentName = req.body.commentInfos.commentName;
+    const data = await findData.save();
+    const data2 = await updateData.save();
+    res.send(data);
+  } catch (error) {
+    console.log(error.message);
+  }
 };
+
+
 const deleteData = async (req, res) => {
   try{
   const id = req.params.id;
