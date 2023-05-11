@@ -7,5 +7,13 @@ const addData = async(req,res)=>{
     })
     res.send(data);
 }
-
-module.exports =  {addData}
+const updateData = async(req,res)=>{
+    let id = req.params.id;
+    const data = await actor.update(req.body,{
+    where:{
+        id:id
+    }
+})
+    res.send(data);
+}
+module.exports =  {addData,updateData}

@@ -5,7 +5,7 @@ const app = express();
 
 app.post('/addData',actorData.addData);
 // app.get('/getAllData',actorData.getAllData);
-// app.put('/:id',actorData.updateData);
+app.put('/:id',actorData.updateData);
 // app.delete('/:id',actorData.deleteData);
 
 

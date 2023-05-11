@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Data</title>
+</head>
+<body>
+    <h1>hello</h1>
+    
+    
+    <% for(let i=0;i<data.length;i++) {%>
+    
+        <% if(data[i].comboType=="dropdown"){%>
+
+            <li><select name="", id="">
+                <option value="">Select your <%=data[i].comboName %> </option>
+                <% for(let j=0;j<data[i].options.length;j++){ %>
+                    <option value=""><%= data[i].options[j].optionName %></option>
+                <% } %>
+            </select>
+            </li><br>
+        <%}%>
+
+        <% if(data[i].comboType=="checkbox"){%>
+            <li>
+            <% for(let j=0;j<data[i].options.length;j++){ %>
+                <input type="checkbox" name="<%= data[i].options[j].optionName %>",value="<%= data[i].options[j].optionName %>"><%= data[i].options[j].optionName %></input>
+            <% } %>
+            </li><br>
+        <% } %> 
+        
+        <% if(data[i].comboType=="radio"){%>
+            <li>
+            <% for(let j=0;j<data[i].options.length;j++){ %>
+                <input type="radio" name="optionName",value="<%= data[i].options[j].optionName %>"><%= data[i].options[j].optionName %></input>
+                <% } %>
+            </li><br>
+        <% } %> 
+
+        <% if(data[i].comboType=="multi-select"){%>
+            <li>
+                <select name="" id="" multiple>
+                <option value="">Select your  <%=data[i].comboName %></option>
+                <% for(let j=0;j<data[i].options.length;j++) { %>
+                    <option value=""><%= data[i].options[j].optionName %></option>
+                <% } %>
+        </select>
+        </li><br>
+        <% } %> 
+    <% } %>  
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Combo</title>
+    <style>
+        .custom{
+        margin-top: 10px;
+        }
+        .custom1 {
+            padding-right:2rem;
+        }
+        input{
+            height:20px;
+            width:150px;
+        }
+        .btn-style {
+            color:white;
+            background-color:goldenrod;
+            font-size: large;
+            font-weight: bold;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/addFeture" method="post" >
+        <table>
+            <tr>
+                <td class="custom1"><label for="cname">Combo Name:</label>
+                <input type="text" id="cname" name="cname">
+                </td>
+           
+                <td class="custom1" id="align"><label for="selection">Select Type</label>
+                    <select name="selection" id="type_menu">
+                        <option value="selectone">select-one</option>
+                        <option value="dropdown">Dropdown</option>
+                        <option value="checkbox">Check-box</option>
+                        <option value="radio">Radio-button</option>
+                        <option value="muti-select">Multi-select dropdown</option>
+                    </select>
+                </td>
+                <td class="custom1"><input class="btn-style" type="button" value="Add Option" onclick="addOption()"></input></td>
+
+                <td class="custom1">
+                    <input type="button" class="btn-style" value="Add Combo" onclick="addCombo()"></input>
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                <div id="add_option"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <div id="add_combo"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="btn-style" type="submit" value="Submit it" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
+<script>
+
+let count = 1;
+function addCombo() {
+        let data = "";
+        
+        data +=`<tr>
+                <td><label for="cname">Combo Name:</label>
+                <input type="text" id="cname" name="cname">
+                </td>        
+
+                <td id="align"><label for="selection">Select Type</label>
+                    <select name="selection" id="type_menu">
+                        <option value="selectone">select-one</option>
+                        <option value="dropdown">Dropdown</option>
+                        <option value="checkbox">Check-box</option>
+                        <option value="radio">Radio-button</option>
+                        <option value="muti-select">Multi-select dropdown</option>
+                    </select>
+                </td>
+                <td><input type="button" class="btn-style" id="combo_${count}" value="Add Option" onclick="addmoreOption('option_${count}')"></input></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="option_${count}"></div>
+                    </td>
+                </tr>`
+       console.log(count,"::;");
+        let options = document.createElement("div");
+        options.className = "custom"
+        options.innerHTML = data;
+        document.getElementById("add_combo").appendChild(options);
+        count++;   
+
+}
+
+function addmoreOption(id) {
+    let info = "";
+    info +=` 
+    <tr>
+      <td><label for="optname">Option Name: </label></td>
+      <td><input type="text" id="optname" name="optname_${count}" /></td>
+    </tr>`
+    let options = document.createElement("div");
+    options.className = "custom"
+    options.innerHTML = info;
+    document.getElementById(id).appendChild(options);   
+}
+
+
+function addOption() {
+    let info = "";
+    info +=` 
+    <tr>
+      <td><label for="optname">Option Name: </label></td>
+      <td><input type="text" id="optname_1" name="optname_1" /></td>
+    </tr>`
+    let options = document.createElement("div");
+    options.className = "custom"
+    options.innerHTML = info;
+    document.getElementById("add_option").appendChild(options);
+}
+
+</script>
