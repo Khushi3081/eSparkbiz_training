@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color_Table</title>
+</head>
+<style>
+    #container {
+        margin-top: 100px;
+        
+    }
+    td {
+        height:50px;
+        width:50px;
+    }
+    input {
+        margin-left: 870px;
+        margin-top: 50px;
+        height: 30px;
+        width:70px;
+        background-color: brown;
+        color:white;
+    }
+    .result {
+    display: block;
+    text-decoration: none;
+    width: 200px;
+    height: 30px;
+    padding-top: 5px;
+    background-color:crimson;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+
+}
+</style>
+<body>
+<input id="btn" type="button" name="btn" value="00:00:30"></input>
+ <center>
+    <div id = "container">
+
+    </div>
+</center>
+</body>
+<div>
+    <a class="result" href="http://localhost:3000/welcome">Back To Homepage</a>
+</div>
+<script>
+    var khushi = document.getElementById("container");
+let khushi_time = document.getElementById("btn");
+let khushi_timer = 30;
+khushi_time.innerHTML = `00:00:${khushi_timer}`;
+
+
+createTable(3);
+
+function createTable(counter) {
+    let size = counter;
+    let data = "";
+    data += `<table>`;
+        for(let i=0 ; i<size ; i++) {
+            data +="<tr>";
+            for(let j=0;j<size;j++) {
+                data += "<td></td>";
+            }
+            data += "</tr>";
+        }
+    data += "</table>";
+
+khushi.innerHTML = data;
+
+var khushi_td = document.querySelectorAll("td");
+var khushi_random = Math.floor(Math.random() * khushi_td.length);
+var khushi_red = Math.floor(Math.random() * 255);
+var khushi_green = Math.floor(Math.random() * 255);
+var khushi_blue = Math.floor(Math.random() * 255);
+
+khushi_td.forEach((td) => {
+    td.style.backgroundColor =  'rgb(' + khushi_red + ',' + khushi_green + ',' + khushi_blue + ')';
+
+});
+
+khushi_td[khushi_random].style.backgroundColor =  'rgba(' + khushi_red + ',' + khushi_green+ ',' + khushi_blue+ ',' + 0.5+ ')';
+khushi_td[khushi_random].addEventListener("click" , () => {
+    data = "";
+    if(khushi_timer>0) {
+        createTable(++size);
+
+        }
+    
+   
+});
+
+}
+let khushi_countdown = setInterval(() => {
+    khushi_timer--;
+        khushi_time.value = `00:00:${khushi_timer}`;
+        if(khushi_timer<=0) {
+            clearInterval(khushi_countdown);
+        alert("game over!!!"); 
+            location.reload();
+        }
+        else {
+        createTable(++size);
+
+        }
+        }, 1000);
+        
+
+</script>
+</html>

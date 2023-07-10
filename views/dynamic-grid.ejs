@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <title>Scrolling table</title>
+</head>
+<style>
+    .result {
+    display: block;
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    padding-top: 5px;
+    background-color:crimson;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+
+}
+</style>
+<body>
+    <div id="inputsize">
+        <input type="range" name="table_size" id="tablesize" max="100" min="3" oninput="tableSize(this.value)">
+        <p id="displaysize">3</p>
+    </div>
+
+    <table id="scroll_tbl" border="1">
+    </table>
+</body>
+<div>
+    <a class="result" href="http://localhost:3000/welcome">Back To Homepage</a>
+</div>
+<script>
+    var table = document.getElementById("scroll_tbl");
+
+function tableSize(data) {
+    document.getElementById("displaysize").innerHTML = data;
+
+    var range = document.getElementById("tablesize");
+    range.addEventListener("input", (temp) => {
+        let data = "";
+        for (let i = 1; i <= temp.target.value; i++) {
+            data += "<tr>";
+            for (let j = 1; j <= temp.target.value; j++) {
+                data += `<td>(${i},${j})</td>`;
+            }
+            data += "</tr>";
+        }
+        table.innerHTML = data;
+
+        var tds = document.querySelectorAll("td");
+        tds.forEach((td) => {
+            td.addEventListener("mouseover", (value) => {
+                td.style.backgroundColor = "green";
+            });
+        });
+        tds.forEach((td) => {
+            td.addEventListener("mouseout", (value) => {
+                td.style.backgroundColor = "white";
+            });
+        });
+    });
+
+}
+
+</script>
+
+</html>

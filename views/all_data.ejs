@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Search</title>
+</head>
+<style>
+    #txt {
+        background-color: rgb(167, 244, 244);
+        font-size: x-large;
+        height: 40px;
+        width: 500px;
+    }
+
+    #sb {
+        background-color: cornflowerblue;
+        font-size: x-large;
+        height: 40px;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: larger;
+    }
+
+    button {
+        width: 30px;
+        height: 40px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 200px;
+        margin-top: 20px;
+    }
+
+    td {
+        border: 2px solid black;
+        color: rgb(255, 0, 174);
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+
+    th {
+        font-weight: bold;
+        color: blue;
+        background-color: hotpink;
+    }
+
+    .ds {
+
+        height: 30px;
+        width: 170px;
+        border: 2px solid black;
+        background-color: greenyellow;
+        color: black;
+        font-weight: bolder;
+    }
+</style>
+
+<body>
+    <div>
+        <h3>Delemeters:</h3>
+        <p>^=first_name</p>
+        <p>#=last_name</p>
+        <p>$=city_name</p>
+        <p>!=state_name</p>
+        <p>@=mobile_no</p>
+    </div>
+    <div>
+        <form action="/searching" method="post">
+            <input id="txt" type="text" name="demo" placeholder="search here..."></input>
+            <input id="sb" type="submit" name="submit" value="submit">
+        </form>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Designation</th>
+                <th>Address-1</th>
+                <th>Address-2</th>
+                <th>Phoneno</th>
+                <th>city</th>
+                <th>state</th>
+                <th>zipcode</th>
+                <th>Gender</th>
+                <th>Reletionship status</th>
+                <th>Date Of Birth</th>
+
+            </tr>
+            <p class="ds"><a id="alldelete" href="">Delete Selected</a></p>
+        </thead>
+
+
+        <tbody>
+            <% for(let i=0;i< data.length;i++) {%>
+                <tr>
+                    <td>
+                        <%= data[i].id %>
+                    </td>
+                    <td>
+                        <%= data[i].first_name%>
+                    </td>
+                    <td>
+                        <%= data[i].last_name%>
+                    </td>
+                    <td>
+                        <%= data[i].designation%>
+                    </td>
+                    <td>
+                        <%= data[i].address_1%>
+                    </td>
+                    <td>
+                        <%= data[i].address_2%>
+                    </td>
+                    <td>
+                        <%= data[i].phone_no%>
+                    </td>
+                    <td>
+                        <%= data[i].city%>
+                    </td>
+                    <td>
+                        <%= data[i].state%>
+                    </td>
+                    <td>
+                        <%= data[i].zip_code%>
+                    </td>
+                    <td>
+                        <%= data[i].gender%>
+                    </td>
+                    <td>
+                        <%= data[i].reletion%>
+                    </td>
+                    <td>
+                        <%= data[i].date_of_birth %>
+                    </td>
+                    <td>
+                        <a href="/moredata?id=<%= data[i].id%>">See More </a>
+                    </td>
+                    <td>
+                        <a href="/updatedata?id=<%= data[i].id%>">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/deletedata?id=<%= data[i].id%>" onclick="deleteData('data[i].id')">Delete </a>
+                    </td>
+                    <td>
+                        <input id="<%= data[i].id %>" class="deleteallchek" type="checkbox">
+                    </td>
+                    <% } %>
+        </tbody>
+    </table>
+    <% for(let i=1;i<=table_count;i++) {%>
+        <button <% if( page == i ) { %>
+            style="background-color:green";
+            <% } %> >
+
+
+            <a href="/alldata?page= <%= i %>"><%= i %> </a>
+            
+        </button>
+        <% } %>
+</body>
+<script>
+
+    async function deleteData(d_id) {
+        if (confirm("Are you sure you want to proceed?") == true) {
+            const query_string = await fetch(`/deletedata/?id=${d_id}`);
+        }
+        else {
+            return false;
+        }
+    }
+
+    const click_delete = document.getElementById('alldelete');
+    click_delete.addEventListener('click', async () => {
+        const checkbox = document.querySelectorAll(".deleteallchek");
+        console.log(checkbox);
+
+        let ids = [];
+        let count = 0;
+        for (let i = 0; i < checkbox.length; i++) {
+            if (checkbox[i].checked) {
+                ids[count] = checkbox[i].id;
+                count++;
+            }
+        }
+        console.log(ids);
+    
+
+        if (confirm("Are you sure you want to proceed?") == true) {
+            const query_string = await fetch(`/deletealldata/?id=${ids}`);
+            
+        }
+        else {
+            return false;
+        }
+    })
+
+</script>

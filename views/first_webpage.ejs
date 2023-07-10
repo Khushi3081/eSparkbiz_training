@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Webpage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        body{
+    margin: 0px;
+}
+* {
+    box-sizing: border-box;
+    }
+.container {
+   width:1170px;
+   margin:0 auto;
+   padding: 0 16px;
+}
+.navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: center;
+}
+.nav-bar {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-bar a{
+text-decoration: none;
+color: black;
+margin-right: 10px;
+}
+
+.nav-bar p{
+font-weight: bolder;
+font-size: 2rem;
+}
+.link {
+    margin-left:1.5rem;
+    font-size: large;
+    font-weight: light;
+}
+
+#child3 a{
+    border: 1px solid blue;
+    text-align: center;
+    padding: 5px;
+    background-color: aliceblue;
+    color: blue;
+    font-size: large;
+    margin-left: 1rem;
+    display:block;
+    width:10rem;
+}
+
+.image {
+    width:50%;
+}
+.image img {
+    width: 90%;
+    background-color: rgba(21,100,213,1);
+    border: 1px solid rgba(21,100,213,1);
+    border-radius: 10px;
+    margin-left: -1rem;
+}
+.rightside{
+    display: flex;
+}
+.content{
+    width:50%;
+}
+.inner-content {
+    font-size: 4rem;
+    font-weight: bold;
+}
+.inner-content2 {
+    font-size: 1.4rem;
+    font-weight: lighter;
+    width:75%;
+}
+#fourbox{
+        display: flex;
+        flex-wrap: wrap;
+        width:100%;
+        margin:0;
+}
+.onebox{
+    width:50%;
+    display: flex;
+    margin:0;
+}
+.button{
+    display: block;
+    height:40px;
+    width: 230px;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    background-color: rgba(21,100,213,1);
+    color: aliceblue;
+    border: 1px solid rgba(21,100,213,1);
+    border-radius: 1px;
+    margin-top: 1rem;
+
+}
+.service{
+    color:green;
+    font-size: large;
+    text-align: center;
+    margin-top: 100px;
+}
+.service2{
+    margin-top: -6px;
+    text-align: center;
+    color: rgba(0,0,0,0.8);
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+.service3{
+    text-align: center;
+    font-size: x-large;
+    color: rgba(0,0,0,0.6);
+}
+.feature{
+    display: flex;
+    justify-content: center;
+}
+.child8 {
+    justify-content: center;
+    display: flex;
+
+}
+.child9 {
+    height: 28px;
+    padding-left: 2rem;
+    padding-right: 1rem;
+}
+.col{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    margin-top: 5rem;
+    justify-content: space-between;
+}
+.card{
+    width:30%;
+    border: 2px solid rgba(0,0,0,0.6) ;
+    border-radius: 15px;
+    height:350px;
+
+}
+.card img {
+    margin: 30px;
+    border: 1px solid rgb(77, 77, 242);
+    border-radius: 20px;
+}
+.card h3  {
+    padding-left: 30px;
+    font-size: x-large;
+}
+.card p {
+    padding-left: 30px;
+    font-size: large;
+    color:rgba(0,0,0,0.8)
+}
+.card a{
+    padding-left: 30px;
+    font-size: large;
+    color:blue;
+    font-weight: bold;
+    text-decoration: none;
+}
+.parent14 {
+    margin-top: 4rem;
+    position: relative;
+}
+.child13{
+    width:100%;
+}
+
+.daniel {
+    margin-top: 5rem;
+    background-image: url("/images/thumb-review.png");
+    background-repeat: no-repeat;
+    width:100%;
+    background-size: cover;
+    padding: 40px;
+    /* margin-bottom: 10rem; */
+    /* background-color: rgb(155, 75, 231); */
+}
+.child14 {
+    width:50%;
+    height: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    
+
+}
+.child14 img{
+    margin-top:4rem;
+}
+.child14 p{
+    margin-top:15px;
+    margin-left:20px;
+    font-size: x-large;
+    opacity: 0.6;
+    margin-top: 2rem;
+}
+
+.funcution{
+        width:30%;
+        height:350px;
+}
+.funcution h3{
+    color:rgba(0,128,0,0.7);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.funcution h1{
+    font-size: 2rem;
+}
+.funcution h2{
+    font-size: x-large;
+    opacity: 0.8;
+}
+.funcution p{
+     font-size: 1.5rem;
+     color:rgba(0,0,0,0.7)
+}
+.tips h3{
+    margin-top: 8rem;
+    color:green;
+    text-align: center;
+}
+#one{
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+}
+#two {
+    text-align: center;
+    font-size: larger;
+    
+}
+.care{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%
+}
+.motherhood1 {
+    background-image: url("/images/thumb-Image(3).png");
+    background-repeat: no-repeat;
+    height: 500px;
+    width:50%;
+    background-size:  98% 100%;
+
+}
+.motherhood2{
+    background-image: url("/images/thumb-Image(3).png");
+    background-repeat: no-repeat;
+    height: 500px;
+    width:50%;
+    background-size:  98% 100%;
+}
+.care p{
+    color:white;
+    font-size: xx-large;
+    padding-top: 380px;
+    padding-left: 20px;
+}
+.test h3{
+    margin-top: 8rem;
+    color:green;
+    text-align: center;
+}
+.test h1{
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.star-write{
+    display: flex;
+    /* flex-wrap:wrap; */
+    width:100%
+}
+.star{
+    width:25%;
+}
+.star-img{
+    display: flex;
+    flex-wrap: wrap;
+}
+.star-img img{
+    margin-left: 2px;
+
+}
+.star p{
+    width:80%;
+    height: 150px;
+    font-size: larger;
+}
+.customer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.avtar{
+    width:20%;
+}
+.name{
+    width:80%;
+    height: auto;
+    justify-content: center;
+    margin-top: -1rem;
+}
+.name h4{
+    height: auto;
+    color: rgba(0,0,0,0.9);
+}
+.name p{
+    font-size: medium;
+    height: auto;
+    margin-top: -1.5rem;
+    color: rgba(0,0,0,0.7);
+}
+.name img{
+    width: 20px;
+    height:20px;
+    justify-content: center;
+}
+.trustpilot{
+    margin-top: 6rem;
+}
+.tp-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.item{
+    width:33.33%;
+    justify-content: center;
+
+}
+#unique {
+    margin-left: 6rem;
+    height: 40px;
+}
+.item p{
+    font-size: large;
+    width:70%;
+}
+.submisson{
+    margin-top: 6rem;
+    background-color: cornflowerblue;
+    background-size: 100%;
+}
+.second-last{
+    display:flex;
+    flex-wrap: wrap;
+    margin-bottom: 300px;
+}
+.request{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 4rem ;
+}
+.email input{
+    width:400px;
+    height: 50px;
+    background-color: white;
+    border: 3px solid white;
+    border-radius: 10px;
+}
+.submit input{
+    background-color: blue;
+    color: white;
+    height: 50px;
+    text-align: center;
+    border: 1px solid blue;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+#three{
+    padding-top: 60px;
+    padding-bottom: 250px;
+}
+.cntxt {
+    width:55%
+}
+.para p{
+    font-size: 35px;
+    color: white;
+}
+.alert {
+    color:white;
+    opacity: 0.6;
+    font-size: 18px;
+    margin-top: 3rem;
+}
+.features{
+    width:35%;
+}
+.f1{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    height: 120px;
+    justify-content: center;
+    background-color: white;
+    margin-left:5rem;
+    border: 1px solid white;
+    border-radius: 10px;
+   
+}
+.img {
+    width:10%;
+  
+}
+.txt{
+    width:90%;
+}
+.f2{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+    height: 120px;
+    justify-content: center;
+    background-color: white;
+    margin-left:8rem;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-top: -2rem;
+}
+.img2{
+    width:10%;
+  
+}
+.txt2{
+    width:90%;
+}
+.last{
+    display: flex;
+    flex-wrap: wrap;
+    width:100%;
+}
+.intro{
+    width:30%
+}
+.nav a{
+    text-decoration: none;
+    color: white;
+    }
+    
+.nav p{
+    font-weight: bolder;
+    font-size: 2rem;
+    }
+.write{
+    color: white;
+    font-size: 20px;
+}
+.icon {
+    color:white;
+    opacity: 0.7;
+    margin-top: 2rem;
+}
+.style {
+    margin-left: 0.4rem;
+}
+.Product {
+    width:calc(70%/4);
+}
+.i-prods{
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 2rem;
+    margin-top: 2.5rem;
+    font-size: larger;
+    font-weight: bold; 
+}
+.i-prod{
+    display: block;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 2rem;
+}
+.Services {
+    width:calc(70%/4);
+}
+.Company {
+    width:calc(70%/4);
+}
+.More {
+    width:calc(70%/4);
+}
+.conclusion img {
+    margin-top:4rem;
+    margin-left: 30rem;
+}
+.conclusion p {
+    text-align: center;
+}
+.result {
+    display: block;
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    padding-top: 5px;
+    background-color:crimson;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+
+}
+ </style>
+
+</head>
+
+<body>
+    <div id="parent-container">
+        <header>
+            <div class="container">
+                <div class="navigation">
+                    <div class="nav-bar">
+                        <a href="#">
+                            <p>ehya.</p>
+                        </a>
+                    </div>
+                    <div>
+                        <ul class="nav-bar">
+                            <li class="link"><a href="#">Home</a></li>
+                            <li class="link"><a href="#">Landings<i class="bi bi-chevron-down"></i></a></li>
+                            <li class="link"><a href="#">Pages<i class="bi bi-chevron-down"></i></a></li>
+                            <li class="link"><a href="#">Docs</a></li>
+                            <li class="link"><a href="#">Help</a></li>
+                            <div id="child3">
+                                <a>Get it now</a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO SECTION IMAGE WITH 4 SECTION-->
+        <section class="rightside">
+            <div class="image">
+                <img src="/images/Image@2x.png" alt="image-2x">
+            </div>
+            <div class="content">
+                <div>
+                    <h1 class="inner-content">Make your new life happier.</h1>
+                    <p class="inner-content2"> We work with several leading insurance companies to secure insurance
+                        coverages tailored to meet your needs.</p>
+                </div>
+                <div id="fourbox">
+                    <div class="onebox">
+                        <div>
+                            <img src="images/path-1.png" alt="path-1">
+                        </div>
+                        <div>
+                            <p>Special expert rates</p>
+                            <p>Excellent coverage</p>
+                        </div>
+                    </div>
+                    <div class="onebox">
+                        <div>
+                            <img src="images/path-2.png" alt="path-2">
+                        </div>
+                        <div>
+                            <p>Special expert rates</p>
+                            <p>Excellent coverage</p>
+                        </div>
+
+                    </div>
+                    <div class="onebox">
+                        <div>
+                            <img src="images/Path-7.png" alt="path-3">
+                        </div>
+                        <div>
+                            <p>Special expert rates</p>
+                            <p>Excellent coverage</p>
+                        </div>
+
+                    </div>
+                    <div class="onebox">
+                        <div>
+                            <img src="images/Path-8.png" alt="path-8">
+                        </div>
+                        <div>
+                            <p>Special expert rates</p>
+                            <p>Excellent coverage</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a class="button">Get a consultation</a>
+                </div>
+
+        </section>
+
+        <section>
+            <div>
+                <p class="service">Our Services</p>
+                <p class="service2">Insurance made simple for you</p>
+                <p class="service3">We work with several leading insurance companies to secure insurance<br>coverages
+                    tailored to meet your needs</p>
+            </div>
+            <div class="feature">
+            <div class="child8">
+                <img class="child9" src="images/Icon  8.svg">Flexible
+                product to make your life easier
+            </div>
+            <div class="child8">
+                <img class="child9" src="images/Icon  8.svg">Highest
+                standards of service
+            </div>
+            <div class="child8">
+                <img class="child9" src="images/Icon  8.svg"
+                    alt="svg">Fast and reliable service
+            </div>
+            </div>
+        </section>
+
+        <section >
+            <div class="container">
+                <div class="col">
+                    <div class="card">
+                       <img src="images/Icon  9.png"></img>
+                       <h3>Home Insurance</h3>
+                       <p>Home insurance is a type of insurance policy that provides cover for your home</p>
+                        <a href="#">Learn more<i class="bi bi-arrow-right"></i></a> 
+                    </div>
+                    <div class="card">
+                        <img src="images/Icon  10.png"></img>
+                        <h3>Life Insurance</h3>
+                        <p>Helping you bridge gaps in your health care coverage during times of transition.</p>
+                        <a href="#">Learn more<i class="bi bi-arrow-right"></i></a> 
+                    </div>
+                    <div class="card">
+                        <img src="images/Icon  11.png"></img>
+                        <h3>Car Insurance</h3>
+                        <p>Car insurance is a type of insurance policy that provides cover for your car.</p>
+                        <a href="#">Learn more<i class="bi bi-arrow-right"></i></a> 
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
+
+        <section class="daniel">
+            <div class="container">
+                <div class="child14">
+                <img src="images/quote-left.png">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio maiores voluptate ut numquam odio accusantium eum cum saepe nemo voluptatem veritatis cumque, nostrum ea culpa velit facilis magnam eveniet cupiditate.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section >
+            <div class="container">
+                <div class="col">
+                    <div class="funcution">
+                       <h3>YOUR BENIFITS</h3>
+                       <h1>We are your right insurance advocate</h1> 
+                    </div>
+                    <div class="funcution">
+                        <h3><img src="images/Icon  10.png"></img></h3>
+                        <h2>We have the best prices</h2>
+                        <p>Helping you bridge gaps in your health care coverage during times of transition.</p>
+                    </div>
+                    <div class="funcution">
+                        <h3><img src="images/Icon  11.png"></img></h3>
+                        <h2>We're your insurance advocate</h2>
+                        <p>We will deal with the insurance companies for you, even after you’ve bought your plan..</p>
+                    </div>
+                    <div class="funcution">
+                        <h3><img src="images/Icon  11.png"></img></h3>
+                        <h2>We're unbiased</h2>
+                        <p>Our online tools help you decide what product is best for you. We’re here to insurance plan you choose..</p>
+                     </div>
+                     <div class="funcution">
+                         <h3><img src="images/Icon  10.png"></img></h3>
+                         <h2>We're availabLe 24/7</h2>
+                         <p>HWe have your back 24/7 between our online chat function, email and telephone support..</p>
+                     </div>
+                     <div class="funcution">
+                         <h3><img src="images/Icon  11.png"></img></h3>
+                         <h2>We make insurance simple</h2>
+                         <p>We're committed to making applying for insurance as simple as can be for our customers..</p>
+                     </div>
+                   
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="tips">
+                    <h3>OUR TIPS FOR YOU</h3>
+                    <p id="one">Reinventing your protection</p>
+                    <p id="two">We share common trends,strategies ideas,opinions,short&long stories from the team behind company.</p>
+                </div>
+           
+                <div class="care">
+                     <div id="mother1" class="motherhood1">
+                        <p>Motherhood is the hardest and the best job ever</p>
+                     </div>
+                     <div id=" mother2"class="motherhood2">
+                        <p>Motherhood is the hardest and the best job ever</p>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="test">
+                    <h3>TESTIMONIALS</h3>
+                    <h1>What our customer have to says</h1>
+                </div>
+            <div class="star-write">
+                <div class="star">
+                    <div class="star-img">
+                    <img src="images/trustpilot-star  2.svg">
+                    <img src="images/trustpilot-star  2.svg">
+                    <img src="images/trustpilot-star  2.svg">
+                    <img src="images/trustpilot-star  2.svg">
+                    <img src="images/trustpilot-star  2.svg">
+                    </div>
+                    <p>I received great customer service from the specialists who helped me. I would recommend to anyone who wants quality.</p>
+                    <div class="customer">
+                    <div class="avtar"><img src="images/Avatar.png"></div>
+                    <div class="name">
+                        <h4>Viola manisa</h4>
+                        <p><img src="images/Icon  8.svg"></img>verified customer</p>
+                    </div>
+                    </div>
+                </div>
+                <div class="star">
+                        <div class="star-img">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        </div>
+                    <p>
+                        I received great customer service from the specialists who helped me. I would recommend to anyone who wants quality. 
+                    </p>
+                    <div class="customer">
+                        <div class="avtar"><img src="images/Avatar.png"></div>
+                        <div class="name">
+                            <h4>Viola manisa</h4>
+                            <p><img src="images/Icon  8.svg"></img>verified customer</p>
+                        </div>
+                        </div>
+                </div>
+                <div class="star">
+                        <div class="star-img">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        </div>
+                        <p>
+                            I received great customer service from the specialists who helped me. I would recommend to anyone who wants quality.
+                        </p>
+                        <div class="customer">
+                            <div class="avtar"><img src="images/Avatar.png"></div>
+                            <div class="name">
+                                <h4>Viola manisa</h4>
+                                <p><img src="images/Icon  8.svg"></img>verified customer</p>
+                            </div>
+                            </div>
+                </div>
+                <div class="star">
+                        <div class="star-img">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        <img src="images/trustpilot-star  2.svg">
+                        </div>
+                    <p>
+                        I received great customer service from the specialists who helped me. I would recommend to anyone who wants quality.
+                    </p>
+                     <div class="customer">
+                    <div class="avtar"><img src="images/Avatar.png"></div>
+                    <div class="name">
+                        <h4>Viola manisa</h4>
+                        <p><img src="images/Icon  8.svg"></img>verified customer</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="trustpilot">
+            <div class="container">
+            <div class="tp-content">
+                <div class="item">
+                     <img src="images/Item.png"></img>
+                </div>
+                <div class="item">
+                    <img src="images/trustpilot-logo.svg"></img>
+                    <div>
+                        <img src="images/s.svg">
+                        <img src="images/s.svg">
+                        <img src="images/s.svg">
+                        <img src="images/s.svg">
+                        <img src="images/s.svg">
+                        <p><b>4.6 out of 5 stars</b> from 8.6k reviews</p>
+                    </div>
+                </div>
+                <div class="item">
+                        <img id="unique" src="images/Path-2.png">
+                        <p>We 're making <b>insurance as simple as</b>  can be</p>
+                </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <section class="submisson">
+            <div class="container" id="three">
+                <div class="second-last">
+                    <div class="cntxt">
+                        <div class="para">
+                            <p>Ready to get insured? Sumbit your request and hear back as soon as tomorrow</p>
+                        </div>
+                        <div class="request">
+                            <div class="email">
+                                <input type="text" placeholder="Your Email">
+                            </div>
+                            <div class="submit">
+                                <input type="text" value="Get Started">
+                            </div>
+                        </div>
+                        <div class="alert">
+                            Get a response tomorrow if you submit by 9pm today. If we received after 9pm will get a reponse the following day.
+                        </div>
+                    </div>
+                    <div class="features">
+                        <div class="f1">
+                            <div class="img">
+                                <img src="images/path-2.png">
+                            </div>
+                            <div class="txt">
+                                <p>We have the best prices</p>
+                                <p>Our insurance plans offers are priced the same everywhere else.</p>
+                            </div>
+                        </div>
+                    
+                        <div class="f2">
+                            <div class="img2">
+                                <img src="images/path-2.png">
+                            </div>
+                            <div class="txt2">
+                                <p>We have the best prices</p>
+                                <p>Our insurance plans offers are priced the same everywhere else.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="last">
+                    <div class="intro">
+                        <div class="nav">
+                            <a href="#">
+                                <p>ehya.</p>
+                            </a>
+                         </div>
+                         <div class="write">
+                            Build a modern and creative website with crealand
+                         </div>
+                         <div class="icon">
+                            <i class="bi bi-google style"></i>
+                            <i class="bi bi-twitter style"></i>
+                            <i class="bi bi-instagram style"></i>
+                            <i class="bi bi-linkedin style"></i>
+                            <i class="bi bi-youtube style"></i>
+                         </div>
+                    </div>
+                    <div class="Product">
+                        <a class="i-prods" href="#">Product</a>
+                        <a class="i-prod" href="#">LandingPage</a>
+                        <a class="i-prod" href="#">Features</a>
+                        <a class="i-prod" href="#">Documentation</a>
+                        <a class="i-prod" href="#">Referral Program</a>
+                        <a class="i-prod" href="#">Pricing</a>
+                    </div>
+                    <div class="Services">
+                        <a class="i-prods" href="#">Service</a>
+                        <a class="i-prod" href="#">Documentation</a>
+                        <a class="i-prod" href="#">Design</a>
+                        <a class="i-prod" href="#">Themes</a>
+                        <a class="i-prod" href="#">Illustration</a>
+                        <a class="i-prod" href="#">Ui kit</a>
+                    </div>
+                    <div class="Company">
+                        <a class="i-prods" href="#">Comapny</a>
+                        <a class="i-prod" href="#">About</a>
+                        <a class="i-prod" href="#">Terms</a>
+                        <a class="i-prod" href="#">Privacy Policy</a>
+                        <a class="i-prod" href="#">Carrers</a>
+                    </div>
+                    <div class="More">
+                        <a class="i-prods" href="#">More</a>
+                        <a class="i-prod" href="#">Documentation</a>
+                        <a class="i-prod" href="#">License</a>
+                        <a class="i-prod" href="#">ChangeLog</a>
+                    </div>
+                </div>
+                <div class="conclusion">
+                    <img src="images/Like.svg">
+                    <p>copyright @2019. Crafted with love</p>
+                </div>
+            </div>
+            <div>
+                <a class="result" href="http://localhost:3000/welcome">Back To Homepage</a>
+            </div>
+        </section>
+     
+    </div>
+</body>
+
+</html>

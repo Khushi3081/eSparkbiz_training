@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<style>
+    #nextline {
+        margin-top: 1rem;
+    }
+    .result {
+    display: block;
+    text-decoration: none;
+    width: 200px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem ;
+}
+</style>
+<body>
+    <div>
+        <p>Welcome in your profile</p>
+    </div>
+    <div><label for="name">Name:</label></div>
+    <div><input id="name" value="<%= data[0].name %>"></div>
+    <div id="nextline"><label for="email">E-mail</label></div>
+    <div><input id="email" value="<%= data[0].email %>"></div>
+    <div>
+        <a class="result" href="http://localhost:3000/welcome">Back To Homepage</a>
+    </div>
+</body>
+</html>

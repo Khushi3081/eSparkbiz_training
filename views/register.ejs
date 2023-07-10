@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="/css/Registration.css">
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="page">
+            <div class="sub-container">
+                <div class="logo">
+                    <img src="/images/image.svg">
+                </div>
+                <div class="welcome">
+                    <p>Welcome back!</p>
+                </div>
+                <div class="main">
+                    <form action="/register" method="post">
+                        <div class="label"><label for="name">Name</label></div>
+                        <div class="input"><input type="text" name="name"></div>
+                        <div class="label"><label for="email">E-mail</label></div>
+                        <div class="input"><input type="text" name="email" id="email" onfocusout="validatemail()"></div>
+                        <div><p id="error"></p></div>
+                        <div class="label"><label for="password">Password</label></div>
+                        <div class="input"><input type="password" name="password" id="password" onfocusout="validatpassword()"></div>
+                        <div>
+                            <p id="wrongpwd"></p>
+                        </div>
+                        <div class="label"><label for="cpassword">Confirm Password</label></div>
+                        <div class="input"><input type="password" name="cpassword"></div>
+                        <div id="submit">
+                            <input type="submit" value="Sign Up">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="rightlogo">
+                <img src="/images/bottom-logo.png">
+            </div>
+            </div>
+        </div>
+        
+    </section>
+</body>
+<script>
+    async function validatemail() {
+        let useremail = document.getElementById("email");
+        console.log(useremail.value);
+
+        let query_string = await fetch(`/checkemail/?email=${useremail.value}`);
+        //console.log(query_string);
+        result = await query_string.json();
+       //console.log(result);
+
+        if(result == true) {
+            error.innerHTML = "email already exists"
+            submit.style.display = "none";
+        }
+        else {
+            error.innerHTML = ""
+            submit.style.display = "block";
+        }
+    }
+
+    async function validatpassword() {
+        let password = document.getElementById("password");
+        //console.log(password.value);
+        result = password.value;
+        //console.log(result);
+
+        if(result.length < 0) {
+            wrongpwd.innerHTML = "password is required";
+            submit.style.display = "none";
+        }
+        else if(result.length < 8) {
+            wrongpwd.innerHTML = "password must be 8 character long";
+            submit.style.display = "none";
+        }
+        else{
+            wrongpwd.innerHTML = "";
+            submit.style.display = "block";
+        }
+    }
+</script>
+</html>

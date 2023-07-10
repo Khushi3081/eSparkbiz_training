@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Search</title>
+</head>
+<style>
+    #txt {
+        background-color: rgb(167, 244, 244);
+        font-size: x-large;
+        height: 40px;
+        width: 500px;
+    }
+
+    #sb {
+        background-color: cornflowerblue;
+        font-size: x-large;
+        height: 40px;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: larger;
+    }
+
+    button {
+        width: 30px;
+        height: 40px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 200px;
+        margin-top: 20px;
+    }
+
+    td {
+        border: 2px solid black;
+        color: rgb(255, 0, 174);
+    }
+
+    th {
+        font-weight: bold;
+        color: blue;
+        background-color: hotpink;
+    }
+    div {
+        display: inline-block;
+    }
+    .result {
+                display: block;
+                text-decoration: none;
+                width: 250px;
+                height: 30px;
+                padding-top: 5px;
+                background-color:crimson;
+                text-align: center;
+                color: white;
+                font-weight: bold;
+            }
+</style>
+</style>
+
+<body>
+    <div>
+        <h3>Delemeters:</h3>
+        <p>^=first_name</p>
+        <p>#=last_name</p>
+        <p>$=city_name</p>
+        <p>!mobile_no</p>
+        <p>@=email</p>
+    </div>
+    <div>
+        <form action="/searching_delemeter" method="post">
+            <input id="txt" type="text" name="demo" placeholder="search here..."></input>
+            
+            <input id="sb" type="submit" name="sbmt" value="Submit">
+        </form>
+    </div>
+    
+        <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>first_name</th>
+                <th>last_name</th>
+                <th>city_name</th>
+                <th>mobile_no</th>
+                <th>e_mail</th>
+            </tr>
+        </thead> 
+
+
+         <tbody>
+            <% for(let i=0;i< data.length;i++) {%>
+                <tr>
+                    <td>
+                        <%= data[i].id %>
+                    </td>
+                    <td>
+                        <%= data[i].first_Name%>
+                    </td>
+                    <td>
+                        <%= data[i].last_Name%>
+                    </td>
+                    <td>
+                        <%= data[i].city_Name%>
+                    </td>
+                    <td style="padding-left:15px;">
+                        <%= data[i].mobile_No%>
+                    </td>
+                    <td style="padding-left:50px;">
+                        <%= data[i].e_mail%>
+                    </td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+    <div id="next">
+        <% for(let i=1;i<=table_count;i++) {%>
+            <button <% if( page == i ) { %>
+                style="background-color:green";
+                <% } %> >
+
+
+                <a href="/searchdelemeter/?page=<%= i %>"><%= i %> </a>
+                
+            </button>
+            <% } %>
+    </div>
+    <div>
+        <a class="result" href="http://localhost:3000/welcome">Back To Homepage</a>
+    </div>
+</body>
+
+</html> 

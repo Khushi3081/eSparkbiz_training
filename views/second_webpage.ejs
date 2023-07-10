@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Webpages</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 1170px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .navigation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            align-items: center;
+        }
+
+        .nav-bar {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: black;
+            margin-right: 10px;
+        }
+
+        .nav-bar p {
+            font-weight: bolder;
+            font-size: 2rem;
+        }
+
+        .link {
+            margin-left: 1.5rem;
+            font-size: large;
+            font-weight: light;
+        }
+
+        #child3 a {
+            border: 1px solid blue;
+            text-align: center;
+            padding: 5px;
+            background-color: aliceblue;
+            color: blue;
+            font-size: large;
+            margin-left: 1rem;
+            display: block;
+            width: 10rem;
+        }
+
+        .start {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .leftside {
+            width: 40%;
+        }
+
+        .heading1 {
+            margin-top: 90px;
+            font-size: 25px;
+            color: darkslateblue;
+        }
+
+        .text1 {
+            font-size: 17px;
+            color: rgba(0, 0, 0, 0.7)
+        }
+
+        .button1 {
+            margin-top: 1.3rem;
+            height: 40px;
+            width: 150px;
+            text-align: center;
+            background-color: darkslateblue;
+            color: white;
+        }
+
+        .arrow i {
+            margin-top: 1.5rem;
+            display: inline-block;
+            font-size: 3rem;
+            opacity: 0.6;
+        }
+
+        .rightside {
+            width: 60%;
+        }
+
+        .photo img {
+            width: 100%;
+        }
+
+        .partner {
+            margin-top: 3rem;
+            color: rgb(15, 152, 206);
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .left-content p {
+            font-size: x-large;
+            width: 60%;
+        }
+
+        .right-content p {
+            justify-content: space-around;
+            font-size: large;
+        }
+
+        .left-content {
+            width: 50%;
+        }
+
+        .right-content {
+            width: 50%;
+        }
+
+        .icon {
+            margin-left: 4rem;
+        }
+
+        .work {
+            margin-top: 7rem;
+            background-color: rgba(95, 158, 160, 0.1);
+        }
+
+        .do {
+            padding-top: 2rem;
+        }
+
+        .do h3 {
+            display: inline;
+            font-size: x-large;
+        }
+
+        .do p {
+            display: inline;
+            margin-left: 7rem;
+            font-size: large;
+            opacity: 0.8;
+        }
+
+        .card {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-around;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .inner-card {
+            width: calc(95%/3);
+            border: 1px solid white;
+            background-color: white;
+            border-radius: 15px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-left: 10px;
+            margin-top: 16px;
+        }
+
+        .img {
+            width: 10%;
+        }
+
+        .i-text {
+            width: 90%;
+            margin-top: -14px;
+        }
+
+        .project {
+            margin-top: 5rem;
+        }
+
+        .inline {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .port {
+            width: 80%;
+        }
+
+        .i {
+            width: 20%;
+            margin-top: 3rem;
+        }
+
+        #i1 {
+            font-size: 30px;
+            opacity: 0.4;
+        }
+
+        #i2 {
+            font-size: 30px;
+        }
+
+        .p-name {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .p1 {
+            width: 33%;
+        }
+
+        .p1 h6 {
+            color: darkslateblue;
+            font-size: 15px;
+        }
+
+        .testimonial {
+            margin-top: 7rem;
+        }
+
+        #p1 {
+            font-size: 10px;
+            color: rgb(10, 179, 246);
+        }
+
+        #p2 {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .owner {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .o1 {
+            width: 48%;
+            border: 2px solid rgba(95, 158, 160, 0.1);
+            margin-left: 1rem;
+        }
+
+        .o-discription {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .pt {
+            width: 20%;
+        }
+
+        .name {
+            width: 80%;
+        }
+
+        .socialmedia {
+            margin-top: 7rem;
+        }
+
+        .head {
+            text-align: center;
+        }
+
+        #h1 {
+            color: aqua;
+            font-size: small;
+        }
+
+        .socialapp {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .apps {
+            width: 24%;
+            text-align: center;
+        }
+
+        .ready {
+            margin-top: 4rem;
+            background-color: aqua;
+            text-align: center;
+            color: white;
+            padding: 1.5rem 0;
+        }
+
+        #discuss {
+            text-align: center;
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .conclude {
+            margin-top: 2rem;
+            background-color: darkslateblue;
+        }
+
+        .last {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .intro {
+            width: 30%
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav p {
+            font-weight: bolder;
+            font-size: 2rem;
+        }
+
+        .write {
+            color: white;
+            font-size: 20px;
+        }
+
+        .logo {
+            color: white;
+            opacity: 0.7;
+            margin-top: 2rem;
+        }
+
+        .style {
+            margin-left: 0.4rem;
+        }
+
+        .Product {
+            width: calc(70%/4);
+        }
+
+        .i-prods {
+            display: block;
+            text-decoration: none;
+            color: white;
+            margin-bottom: 2rem;
+            margin-top: 2.5rem;
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .i-prod {
+            display: block;
+            text-decoration: none;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .Services {
+            width: calc(70%/4);
+        }
+
+        .Company {
+            width: calc(70%/4);
+        }
+
+        .More {
+            width: calc(70%/4);
+        }
+
+        .conclusion img {
+            margin-top: 4rem;
+            margin-left: 30rem;
+        }
+
+        .conclusion p {
+            text-align: center;
+        }
+        .result {
+            display: block;
+            text-decoration: none;
+            width: 150px;
+            height: 30px;
+            padding-top: 5px;
+            background-color:crimson;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+
+}
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+    <div id="parent-container">
+        <header>
+            <div class="container">
+                <div class="navigation">
+                    <div class="nav-bar">
+                        <a href="#">
+                            <p>ehya.</p>
+                        </a>
+                    </div>
+                    <div>
+                        <ul class="nav-bar">
+                            <li class="link"><a href="#">Home</a></li>
+                            <li class="link"><a href="#">Landings<i class="bi bi-chevron-down"></i></a></li>
+                            <li class="link"><a href="#">Pages<i class="bi bi-chevron-down"></i></a></li>
+                            <li class="link"><a href="#">Docs</a></li>
+                            <li class="link"><a href="#">Help</a></li>
+                            <div id="child3">
+                                <a>Get it now</a>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="container">
+                <div class="start">
+                    <div class="leftside">
+                        <div class="heading1">
+                            <h1>
+                                Number #1,
+                                Southern Asia
+                                Digital Product Agency
+                            </h1>
+                        </div>
+                        <div class="text1">
+                            <p>We bring the results while helping you achieve cost and time savings without taking on
+                                risk or management overhead.</p>
+                        </div>
+                        <div>
+                            <input class="button1" type="text" value="See Our Portfolio">
+                        </div>
+                        <div class="arrow">
+                            <i class="bi bi-arrow-down-circle"></i>
+                        </div>
+                    </div>
+                    <div class="rightside">
+                        <div class="photo">
+                            <img src="images/thumb-macbook.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="partner">
+                    Our Partner
+                </div>
+                <div class="content">
+                    <div class="left-content">
+                        <p>We 've worked with them, we trust each other</p>
+                    </div>
+
+                    <div class="right-content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam blanditiis aliquid placeat
+                            repudiandae voluptas asperiores dicta inventore dolor voluptatem minima sint ea consequatur
+                            sed aliquam repellat, quidem nesciunt adipisci tempora?</p>
+                    </div>
+                </div>
+                <div>
+                    <img class="icon" src="images/slack.png">
+                    <img class="icon" src="images/Shape.png">
+                    <img class="icon" src="images/fitbit.png">
+                    <img class="icon" src="images/google.png">
+                    <img class="icon" src="images/airbnb.png">
+                </div>
+            </div>
+        </section>
+        <section class="work">
+            <div class="container">
+                <div class="do">
+                    <h3>What We Do</h3>
+                    <p>We work together with our client to execute impactful product</p>
+                </div>
+
+                <div class="card">
+                    <div class="inner-card">
+                        <div class="content">
+                            <div class="img">
+                                <img src="images/Polygon-1.png">
+                            </div>
+                            <div class="i-text">
+                                <h4>Branding Identity</h4>
+                                <p>We code your app,website and dashboard to you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-card">
+                        <div class="content">
+                            <div class="img">
+                                <img src="images/Polygon-2.png">
+                            </div>
+                            <div class="i-text">
+                                <h4>Development</h4>
+                                <p>We code your app,website and dashboard to you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-card">
+                        <div class="content">
+                            <div class="img">
+                                <img src="images/Polygon-1.png">
+                            </div>
+                            <div class="i-text">
+                                <h4>UI/UX Design</h4>
+                                <p>Making beautiful and intutive design digital product.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-card">
+                        <div class="content">
+                            <div class="img">
+                                <img src="images/Rectangle.png">
+                            </div>
+                            <div class="i-text">
+                                <h4>Microstock</h4>
+                                <p>We produce milion assest for your business needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-card">
+                        <div class="content">
+                            <div class="img">
+                                <img src="images/Triangle.png">
+                            </div>
+                            <div class="i-text">
+                                <h4>Social Media</h4>
+                                <p>Planning and maintenance social media for reach audiance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-card">
+                        <div class="content">
+                            <div class="img">
+                                <img src="images/Polygon.png">
+                            </div>
+                            <div class="i-text">
+                                <h4>Research</h4>
+                                <p>Helping research startup or brand to business needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <section class="project">
+            <div class="container">
+                <div class="inline">
+                    <div class="port">
+                        <h4>PORTFOLIO</h4>
+                        <h1>OUR PROJECT</h1>
+                    </div>
+                    <div class="i">
+                        <i id="i1" class="bi bi-arrow-left-short"></i>
+                        <i id="i2" class="bi bi-arrow-right-short"></i>
+                    </div>
+                </div>
+                <!-- <div class="p-discription"> -->
+                <div class="p">
+                    <img src="images/Photo.png">
+                    <img src="images/Photo.png">
+                    <img src="images/Photo.png">
+                </div>
+                <div class="p-name">
+                    <div class="p1">
+                        <h6>Website, Landing</h6>
+                        <h2>Website Project</h2>
+                    </div>
+                    <div class="p1">
+                        <h6>Dashboard,UI/UX Design</h6>
+                        <h2>Dashboard project</h2>
+                    </div>
+                    <div class="p1">
+                        <h6>Apps,Mobile,OS</h6>
+                        <h2>Apps project</h2>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+    <section class="testimonial">
+        <div class="container">
+            <div>
+                <p id="p1">TESTIMONIAL</p>
+                <p id="p2">What People Say About Us</p>
+            </div>
+            <div class="owner">
+                <div class="o1">
+                    <div class="o-discription">
+                        <div class="pt">
+                            <img src="images/Avatar@2x-1.png">
+                        </div>
+                        <div class="name">
+                            <h3>Jaquon heart</h3>
+                            <p>VP Manage-lizelly company</p>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id quod, alias doloribus ex quis,
+                        voluptates qui rem corporis ut harum illo similique ipsa a vero porro natus repellendus!
+                        Maiores, placeat.</p>
+                </div>
+
+                <div class="o1">
+                    <div class="o-discription">
+                        <div class="pt">
+                            <img src="images/Avatar@2x-1.png">
+                        </div>
+                        <div class="name">
+                            <h3>Jaquon heart</h3>
+                            <p>VP Manage-lizelly company</p>
+                        </div>
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id quod, alias doloribus ex quis,
+                        voluptates qui rem corporis ut harum illo similique ipsa a vero porro natus repellendus!
+                        Maiores, placeat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="socialmedia">
+        <div class="container">
+            <div class="head">
+                <p id="h1">OUR SOCIALMEDIA</p>
+                <h2>Let's be Friends</h2>
+            </div>
+            <div class="socialapp">
+                <div class="apps">
+                    <img src="images/instagram.png">
+                    <h4>Instagram</h4>
+                    <p>For our portfolio and daily activity in office</p>
+                </div>
+                <div class="apps">
+                    <img src="images/twitter.png">
+                    <h4>Instagram</h4>
+                    <p>For our portfolio and daily activity in office</p>
+                </div>
+                <div class="apps">
+                    <img src="images/dribbble.png">
+                    <h4>Instagram</h4>
+                    <p>For our portfolio and daily activity in office</p>
+                </div>
+                <div class="apps">
+                    <img src="images/youtube.png">
+                    <h4>Instagram</h4>
+                    <p>For our portfolio and daily activity in office</p>
+                </div>
+            </div>
+            <div class="ready">
+                <h1>We are Ready for Challenging Project</h1>
+                <p>Send us brief and tell abput your project.</p>
+                <input id="discuss" type="text" value="Let's discuss it!">
+            </div>
+        </div>
+    </section>
+    <section class="conclude">
+        <div class="container">
+            <div class="last">
+                <div class="intro">
+                    <div class="nav">
+                        <a href="#">
+                            <p>ehya.</p>
+                        </a>
+                    </div>
+                    <div class="write">
+                        Build a modern and creative website with crealand
+                    </div>
+                    <div class="logo">
+                        <i class="bi bi-google style"></i>
+                        <i class="bi bi-twitter style"></i>
+                        <i class="bi bi-instagram style"></i>
+                        <i class="bi bi-linkedin style"></i>
+                        <i class="bi bi-youtube style"></i>
+                    </div>
+                </div>
+                <div class="Product">
+                    <a class="i-prods" href="#">Product</a>
+                    <a class="i-prod" href="#">LandingPage</a>
+                    <a class="i-prod" href="#">Features</a>
+                    <a class="i-prod" href="#">Documentation</a>
+                    <a class="i-prod" href="#">Referral Program</a>
+                    <a class="i-prod" href="#">Pricing</a>
+                </div>
+                <div class="Services">
+                    <a class="i-prods" href="#">Service</a>
+                    <a class="i-prod" href="#">Documentation</a>
+                    <a class="i-prod" href="#">Design</a>
+                    <a class="i-prod" href="#">Themes</a>
+                    <a class="i-prod" href="#">Illustration</a>
+                    <a class="i-prod" href="#">Ui kit</a>
+                </div>
+                <div class="Company">
+                    <a class="i-prods" href="#">Comapny</a>
+                    <a class="i-prod" href="#">About</a>
+                    <a class="i-prod" href="#">Terms</a>
+                    <a class="i-prod" href="#">Privacy Policy</a>
+                    <a class="i-prod" href="#">Carrers</a>
+                </div>
+                <div class="More">
+                    <a class="i-prods" href="#">More</a>
+                    <a class="i-prod" href="#">Documentation</a>
+                    <a class="i-prod" href="#">License</a>
+                    <a class="i-prod" href="#">ChangeLog</a>
+                </div>
+            </div>
+            <div class="conclusion">
+                <img src="images/Like.svg">
+                <p>copyright @2019. Crafted with love</p>
+            </div>
+        </div> 
+        <div>
+            <a class="result" href="http://localhost:3000/welcome">Back To Homepage</a>
+        </div>
+    </section>
+</body>
+
+</html>

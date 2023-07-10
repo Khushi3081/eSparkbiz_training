@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<head>
+    <title>Tic_Tac_Toe</title>
+    <style>
+
+table {
+    margin-top: 100px;
+}
+.demo {
+    background-color: ghostwhite;
+    
+}
+
+td{
+    height: 90px;
+    width: 90px;
+    text-align: center;
+   
+}
+
+#rs {
+    margin-left: 890px;
+    margin-top: 50px;
+    height: 40px;
+    width: 80px;
+    background-color: blueviolet;
+    font-weight: bolder;
+}
+.result {
+    display: block;
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    padding-top: 5px;
+    background-color:crimson;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+
+}
+    </style>
+</head>
+
+<body style="background-color:plum" 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ">
+    <label for="p1">Name of player-1:</label>
+    <input type="text" id="p1" name="p1"><br><br>
+
+    <label for="p2">Name of player-2:</label>
+    <input type="text" id="p2" name="p2"><br><br>
+
+    <input type="button" name="btn" value = "Start" onclick="start()"></input><br>
+    <table border="1" align="center">
+        <tr class="demo">
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="demo">
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr class="demo">
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <input id="rs" type="button" name="btn" value="Restart" onclick="restart()"></input><br><br>
+    <span>Win1:</span> <p id="counter1"></p>
+    <span>Win2:</span> <p id="counter2"></p>
+
+    <p id="counter2"></p>
+</body>
+<div>
+    <a class="result" href="http://localhost:3000/welcome">Back To Homepage</a>
+</div>
+<script>
+var khushi_td = document.querySelectorAll("td");
+//console.log(khushi_td);
+var khushi_player_flag = 0;
+var khushi_sign = "X";
+
+var ply1;
+var ply2;
+
+function start() {
+    ply1 = document.getElementById("p1").value;
+    ply2 = document.getElementById("p2").value;
+    
+   
+    console.log(ply1,ply2);
+    khushi_td.forEach((td) => {
+        td.addEventListener("click", () => {
+            if (td.innerHTML == "" && khushi_player_flag == 0) {
+                td.innerHTML = "X";
+                td.style.backgroundColor =  'rgb(' + 66 + ',' + 245 + ',' + 164 + ')';
+                khushi_player_flag = 1;
+                check_cell(khushi_sign);
+                khushi_sign = "0";
+                
+            }
+            if (td.innerHTML == "" && khushi_player_flag == 1) {
+                td.innerHTML = "0";
+                td.style.backgroundColor =  'rgb(' + 245 + ',' + 108 + ',' + 66 + ')';
+                khushi_player_flag = 0;
+                check_cell(khushi_sign);
+                khushi_sign = "X";
+                
+            }      
+        });
+    });
+    
+    function winning(sign) {
+        if(sign == "X") {
+            setwincount(1,0);
+             document.getElementById("counter1").innerHTML = localStorage.getItem(ply1);
+            return `${ply1} win`;
+        }
+        else {
+            setwincount(0,1);
+            document.getElementById("counter2").innerHTML = localStorage.getItem(ply2);
+            return `${ply2} win`;
+          
+        }
+    }
+    
+    function check_cell(sign) {
+        if(khushi_td[0].innerHTML == sign && khushi_td[1].innerHTML == sign && khushi_td[2].innerHTML == sign ) {
+            alert(winning(sign));
+            location.reload();
+            restart(); 
+            return false;
+        }
+        else if(khushi_td[3].innerHTML == sign && khushi_td[4].innerHTML == sign && khushi_td[5].innerHTML == sign ) {
+            alert(winning(sign));
+            // location.reload();
+            restart() 
+            return false;
+            
+
+        }
+        else if(khushi_td[6].innerHTML == sign && khushi_td[7].innerHTML == sign && khushi_td[8].innerHTML == sign ) {
+            alert(winning(sign));
+            // location.reload();
+            restart(); 
+            return false;
+
+           
+        }
+        else if(khushi_td[0].innerHTML == sign && khushi_td[3].innerHTML == sign && khushi_td[6].innerHTML == sign ) {
+            alert(winning(sign));
+            // location.reload();
+            restart(); 
+            return false;
+          
+        }
+        else if(khushi_td[1].innerHTML == sign && khushi_td[4].innerHTML == sign && khushi_td[7].innerHTML == sign ) {
+            alert(winning(sign));
+//             location.reload();
+                
+            restart();
+            return false;
+                 
+        }
+        else if(khushi_td[2].innerHTML == sign && khushi_td[5].innerHTML == sign && khushi_td[8].innerHTML == sign ) {
+            alert(winning(sign));
+
+            restart(); 
+            // location.reload();
+            return false;
+        }
+        else if(khushi_td[0].innerHTML == sign && khushi_td[4].innerHTML == sign && khushi_td[8].innerHTML == sign ) {
+            alert(winning(sign));
+            // location.reload();
+            
+            restart();
+            return false;
+        }
+        else if(khushi_td[2].innerHTML == sign && khushi_td[4].innerHTML == sign && khushi_td[6].innerHTML == sign ) {
+            alert(winning(sign));
+            // location.reload();
+            restart();
+            return false;
+             
+        }
+        else if (khushi_td[0].innerHTML  != "" && khushi_td[1].innerHTML  != "" && khushi_td[2].innerHTML  != "" && khushi_td[3].innerHTML  != "" && khushi_td[4].innerHTML  != "" && khushi_td[5].innerHTML  != "" && khushi_td[6].innerHTML  != "" && khushi_td[7].innerHTML  != "" && khushi_td[8].innerHTML  != "") {
+              alert("draw");
+              restart();
+              return false;
+               
+        }
+    }
+    
+    
+    function setwincount(p1,p2) {
+        var win_p1 = Number.parseInt(localStorage.getItem(ply1) ?? 0);
+        var win_p2 = Number.parseInt(localStorage.getItem(ply2) ?? 0);
+        localStorage.setItem(ply1,win_p1+p1);
+        localStorage.setItem(ply2,win_p2+p2);
+    }
+    
+
+}
+
+//     khushi_td.forEach((node,number) => {
+//         node.addEventListener("click",() => {
+//             node.innerHTML="X";  
+//         });
+//         node.addEventListener("dblclick",() => {
+//             node.innerHTML="0";
+//     });
+// });
+
+function restart() {
+    khushi_td.forEach((td) =>  {
+        td.innerHTML = "";
+        td.style.backgroundColor =  'rgb(' + 255 + ',' + 255 + ',' + 255 + ')'
+    });
+}
+</script>

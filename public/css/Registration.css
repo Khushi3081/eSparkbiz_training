@@ -1,0 +1,70 @@
+body{
+    background-image: url("/images/auth-bg.png");
+}
+.container {
+    width:1170px;
+    margin:0 auto;
+    padding: 0 16px;
+
+ }
+ .page{
+   display: flex;
+   width:100%;
+ }
+ .sub-container {
+   width:50%;
+    background-color: black;
+    color:white;
+    width:500px;
+    height:900px;
+
+/* margin-left: 4rem;  */
+ }
+ .logo{
+    margin-left: 50px;
+    padding-top: 30px ;
+ }
+ .welcome {
+    margin-left: 50px;
+    margin-top: 50px;
+    font-size: x-large;
+ }
+ .label{
+    padding-top: 30px;
+    margin-left: 50px;
+ }
+ .input input {
+    height: 30px;
+    width:250px;
+    margin-top: 7px;
+    margin-left: 50px;
+ }
+ p{
+    margin-left: 50px;
+ }
+ a{
+    color:yellow;
+ }
+ #submit{
+    margin-top: 30px;
+    margin-left: 50px;
+ }
+ #submit input{
+    width:250px;
+    height: 40px;
+    color: white;
+    background-color: darkgreen;
+ }
+ .rightlogo{
+   width: 50%;
+}
+.rightlogo img {
+   position: absolute;
+   bottom: 0;
+   right: 0;
+   margin-right: 200px;
+   margin-bottom: 50px;
+}
+#error{
+   color:white;
+}

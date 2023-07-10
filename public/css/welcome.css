@@ -1,0 +1,60 @@
+body {
+    background-color: rgb(153, 188, 153);
+}
+.basic {
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+#profile{
+    display: block;
+    text-decoration: none;
+    width: 200px;
+    height: 25px;
+    background: #4E9CAF;
+    padding: 10px;
+    margin-left: 800px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+
+}
+#logout{
+    display: block;
+    text-decoration: none;
+    width: 200px;
+    height: 25px;
+    background:darkorchid;
+    padding: 10px;
+    margin-left: 800px;
+    margin-top: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+
+}
+.container {
+    width: 1170px;
+    margin:0 auto;
+}
+.sub-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 2rem;
+}
+.card {
+    width: 33.33%;
+}
+.result {
+    display: block;
+    text-decoration: none;
+    width: 150px;
+    height: 30px;
+    padding-top: 5px;
+    background-color:crimson;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+
+}

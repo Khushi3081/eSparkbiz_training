@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>query-output</title>
+    <style>
+        input {
+            background-color: aqua;
+            font-size: x-large;
+            height: 40px;
+            width: 200px;
+        }
+
+        #next {
+            background-color: coral;
+            display: inline-block;
+            padding: 20px;
+            border: 3px solid black;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: larger;
+        }
+
+        button {
+            width: 50px;
+            height: 40px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 200px;
+            margin-top: 20px;
+        }
+
+        td {
+            border: 2px solid black;
+            color: rgb(255, 0, 174);
+            ;
+        }
+
+        th {
+            font-weight: bold;
+            color: blue;
+            background-color: hotpink;
+        }
+        .result {
+                display: block;
+                text-decoration: none;
+                width: 250px;
+                height: 30px;
+                padding-top: 5px;
+                background-color:crimson;
+                text-align: center;
+                color: white;
+                font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>first_name</th>
+                <th>last_name</th>
+                <th>city_name</th>
+                <th>mobile_no</th>
+                <th>e_mail</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% if(data == "") {%>
+                <tr>Data not found</tr>
+            <% }else {%>
+                    <% for(let i=0;i< data.length;i++) {%>
+                        <tr>
+                            <td>
+                                <%= data[i].id %>
+                            </td>
+                            <td>
+                                <%= data[i].first_Name%>
+                            </td>
+                            <td>
+                                <%= data[i].last_Name%>
+                            </td>
+                            <td>
+                                <%= data[i].city_Name%>
+                            </td>
+                            <td style="padding-left:15px;">
+                                <%= data[i].mobile_No%>
+                            </td>
+                            <td style="padding-left:50px;">
+                                <%= data[i].e_mail%>
+                            </td>
+                        </tr>
+                        <% } %>
+                    <% } %>
+        </tbody>
+    </table>
+
+
+    <div id="next">
+        <% for(let i=1;i<=table_count;i++) {%>
+            <button <% if( page == i ) { %>
+                style="background-color:green";
+                <% } %> >
+
+
+                <a href="/pagination/?page=<%= i %>"><%= i %> </a>
+                
+            </button>
+            <% } %>
+    </div>
+    <div>
+        <a class="result" href="http://localhost:3000/welcome">Back To Homepage</a>
+    </div>
+</body>
+
+</html>

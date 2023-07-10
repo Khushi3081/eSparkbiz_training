@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate 's basic information</title>
+    <style>
+        .demo {
+            margin-left: 50px;
+        }
+
+        .demo1 {
+            margin-left: 30px;
+        }
+
+        .dynamic1 {
+            margin-left: 10px;
+        }
+
+        .custom {
+            margin-bottom: 10px;
+        }
+
+        #box {
+            display: flex;
+        }
+
+        #basic-1 {
+            float: left;
+            width: 50%;
+        }
+
+        #basic-2 {
+            float: right;
+            width: 50%;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/jobdata" method="post" onsubmit="return validate();">
+        <fieldset>
+            <legend><b>Basic Detail</b></legend>
+            <table>
+                <tr>
+                    <td><label for="fname">First Name</label></td>
+                    <td><input type="text" id="fname" name="fname" class="validRequire">
+                    </td>
+                    <td><span id="fname-err" class="error"></span></td>
+
+                    <td><label class="demo" for="lname">Last Name</label></td>
+                    <td><input type="text" id="lname" name="lname" class="validRequire">
+                    </td>
+                    <td><span id="lname-err" class="error"></span></td>
+
+                </tr>
+                <tr>
+                    <td><label for="designation">Designation</label></td>
+                    <td><input type="text" id="designation" name="designation"
+                        class="validRequire">
+                    </td>
+                    <td><span id="designation-err" class="error"></span></td>
+
+                    <td><label class="demo" for="adr">Address 1</label></td>
+                    <td><input type="text" id="adr1" name="adr1" class="validRequire">
+                    </td>
+                    <td><span id="adr1-err" class="error"></span></td>
+
+                </tr>
+
+                <tr>
+                    <td><label for="email">E-Mail</label></td>
+                    <td><input type="text" id="email" name="email" class="validRequire">
+                    </td>
+                    <td><span id="email-err" class="error"></span></td>
+
+                    <td><label class="demo" for="adr">Address 2</label></td>
+                    <td><input type="text" id="adr2" name="adr2" class="validRequire">
+                    </td>
+                    <td><span id="adr2-err" class="error"></span></td>
+
+                </tr>
+
+                <tr>
+                    <td><label for="Pn">phone_No</label></td>
+                    <td><input type="text" id="pn" name="pn" class="validRequire" >
+                    </td>
+                </tr>
+                <td><span id="pn-err" class="error"></span></td>
+
+                <tr>
+                    <td><label for="state">State</label>
+                        <select class="validDropdown" name="state" id="state_menu" onchange="changecity()">
+                    <option value="selectone">select-one</option>
+                            <% for(let i=0;i<data.length;i++) {%>
+                                <option value="<%= data[i].state_id %>">
+                                    <%= data[i].state_name %>
+                                </option>
+                                <% } %>
+                        </select>
+                    <td><span id="state-err" class="error"></span></td>
+
+                    </td>
+
+                    <td><label class="demo" for="ct">City</label>
+                        <select class="validDropdown" name="ct" id="ct">
+                    <option value="selectone"> select-one</option>
+                            <% for(let j=0;j<data_ct.length;j++) {%>
+                                <option value="<%= data_ct[j].city_name%>">
+                                    <%= data_ct[j].city_name %>
+                                </option>
+                                <% } %>
+                        </select>
+                    <td><span id="ct-err" class="error"></span></td>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><label for="zpc">Zip Code</label></td>
+                    <td><input type="text" id="zpc" name="zpc" class="validRequire">
+                    </td>
+                </tr>
+                <td><span id="zpc-err" class="error"></span></td>
+
+                <tr>
+                    <td><label for="gndr">Gender</label></td>
+
+                    <td><input type="radio" id="m" name="gender" value="male">Male
+                        <input type="radio" id="fm" name="gender" value="female">Female
+                        <input type="radio" id="oth" name="gender" value="other">Other
+                    </td>
+                    <td><span id="gender-err" class="error"></span></td>
+
+                </tr>
+                <tr>
+                    <td><label for="rs">Relationship-Status</label></td>
+                    <td><select class="validDropdown" name="rs" id="rs">
+                    <option value="selectone">select-one</option>
+                            <% for(let j=0;j<data2.length;j++) {%>
+                                <option value="<%= data2[j].option_value %>">
+                                    <%= data2[j].option_value %>
+                                </option>
+                                <% } %>
+                        </select>
+                    <td><span id="rs-err" class="error"></span></td>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="dob">DateOfBirth</label></td>
+                    <td><input type="date" id="dob" name="dob" class="validRequire">
+                    </td>
+                </tr>
+                <td><span id="dob-err" class="error"></span></td>
+
+
+            </table>
+
+        </fieldset>
+
+        <br>
+
+
+        <fieldset>
+            <legend><b>Education Detail</b></legend>
+            <table>
+
+                <tr>
+                    <td><label for="nc">Name of Course</label></td>
+                    <td><select class="validDropdown" name="course" id="nc">
+                    <option value="selectone">select-one</option>
+                            <% for(let k=0;k<data3.length;k++) {%>
+                                <option value="<%= data3[k].option_value%>">
+                                    <%= data3[k].option_value %>
+                                </option>
+                                <% } %>
+                        </select>
+                    <td><span id="course-err" class="error"></span></td>
+
+                    </td>
+
+
+                    <td><label class="demo1" for="nb">Name of Board</label></td>
+                    <td> <input type="text" id="nb" name="board" class="validRequire">
+                    </td>
+                    <td id="board-err" class="error"></td>
+
+                    <td><label class="demo1" for="py">Passing Year</label></td>
+                    <td><input type="text" id="py" name="passing_yr" class="validRequire">
+                    </td>
+                    <td id="passing_yr-err" class="error"></td>
+
+                    <td><label class="demo1" for="percentage">Percentage</label></td>
+                    <td><input type="text" id="percentage" name="percentage"
+                        class="validRequire">
+                    </td>
+                    <td id="percentage-err" class="error"></td>
+
+                </tr>
+
+                <div id="choose_course">
+
+                </div>
+                <tr>
+                    <td>
+                        <input type="button" name="btn" value="Add Course" onclick="addcourse()">
+                    </td>
+                    <td>
+                        <input type="button" name="btn" value="Remove Course" onclick="removecourse()">
+                    </td>
+                </tr>
+            </table>
+
+        </fieldset><br>
+
+
+        <fieldset>
+            <legend><b>Experience</b></legend>
+            <table>
+                <tr>
+                    <td><label for="cn">Company Name </label></td>
+                    <td> <input class="dynamic1 validRequire  " type="text" id="cn" name="company">
+                    </td>
+                    <td id="company-err" class="error"></td>
+
+                    <td><label class="demo1" for="ctc">Salary per Annum</label></td>
+                    <td> <input class="dynamic1 validRequire  " type="text" id="ctc" name="ctc"
+                        >
+                    </td>
+                    <td id="ctc-err" class="error"></td>
+
+                    <td><label class="demo1" for="sd">From</label></td>
+                    <td> <input class="dynamic1 validRequire" type="date" id="sd" name="sd"
+                        >
+                    </td>
+                    <td id="sd-err" class="error"></td>
+
+                    <td><label class="demo1" for="ld">To</label></td>
+                    <td> <input class="dynamic1 validRequire" type="date" id="ld" onclick="selectdate()" name="ld"
+                        >
+                    </td>
+                    <td id="ld-err" class="error"></td>
+
+                </tr>
+
+                <div id="choose_experience">
+
+                </div>
+                <tr>
+                    <td>
+                        <input type="button" name="btn" value="Add Experience" onclick="addexp()">
+                    </td>
+                    <td>
+                        <input type="button" name="btn" value="Remove Experience" onclick="removeexp()">
+                    </td>
+                </tr>
+            </table>
+        </fieldset><br>
+
+        <div id="box">
+            <fieldset id="basic-1">
+                <legend><b>Language Known</b></legend>
+                <table>
+                    <% for(let m=0;m<data4.length;m++) {%>
+                         
+                        <tr>
+                            <td><input type="checkbox" class="data4" id="<%= data4[m].option_value%>" name="<%= data4[m].option_value%>"
+                                    value="<%= data4[m].option_value%>" onclick=activatelan(this.id)>
+                                <%= data4[m].option_value%>
+                            </td>
+                            <td><input type="checkbox" id="<%= data4[m].option_value%>r" name="<%= data4[m].option_value%>r" value="read"
+                                    disabled>Read
+                            </td>
+                            <td><input type="checkbox" id="<%= data4[m].option_value%>w" name="<%= data4[m].option_value%>w" value="write"
+                                    disabled>Write
+                            </td>
+                            <td><input type="checkbox" id="<%= data4[m].option_value%>s" name="<%= data4[m].option_value%>s" value="speak"
+                                    disabled>Speak
+                            </td>
+                          </tr>  
+                            <tr><td id="<%= data4[m].option_value%>e" class="error"></td></tr>
+                        <% } %>
+                       
+                </table>
+            </fieldset><br>
+            <fieldset id="basic-2">
+                <legend><b>Technologies Known</b></legend>
+                <table>
+                    <% for(let i=0;i<data5.length;i++) {%>
+                        <tr>
+                            <td><input type="checkbox" class="data5" id="<%= data5[i].option_value %>" name="<%= data5[i].option_value %>" value="<%= data5[i].option_value %>" onclick="activetechno(this.id)">
+                                <%= data5[i].option_value %>
+                            </td>
+                            <td><input type="radio" name="<%=data5[i].option_value %>a" value="beginer" disabled>Begginer</td>
+                            <td><input type="radio" name="<%=data5[i].option_value %>a" value="mideator" disabled>Intermediate
+                            </td>
+                            <td><input type="radio" name="<%=data5[i].option_value %>a" value="Expert" disabled>Expert</td>
+
+                        </tr>
+                        <tr><td id="<%= data5[i].option_value%>e" class="error"></td></tr>
+                        <% } %>
+                
+                </table>
+</fieldset>
+
+        </div>
+        <br><br>
+        <fieldset>
+            <legend><b>Referance Contact</b></legend>
+            <table>
+                <tr>
+                    <td><label for="n"> Name </label>
+                        <input class="dynamic1 validRequire" type="text" id="n_one" name="name">
+                    </td>
+                    <td id="name-err" class="error"></td>
+
+                    <td><label class="demo1" for="cno">Contact number</label>
+                        <input class="dynamic1 validRequire" type="text" id="cno_one" name="contact_num">
+                    </td>
+                    <td id="contact_num-err" class="error"></td>
+
+                    <td><label class="demo1" for="relation">Relation</label>
+                        <input class="dynamic1 validRequire" type="text" id="relation_one" name="relation" >
+                    </td>
+                    <td id="relation-err" class="error"></td>
+
+                </tr>
+
+                <tr>
+                    <td><label for="n_two"> Name </label>
+                        <input class="dynamic1 validRequire" type="text" id="n_two" name="name2">
+                    </td>
+                    <td id="name2-err" class="error"></td>
+
+                    <td><label class="demo1" for="cno_two">Contact number</label>
+                        <input class="dynamic1 validRequire" type="text" id="cno_two" name="contact_num2">
+                    </td>
+                    <td id="contact_num2-err" class="error"></td>
+
+                    <td><label class="demo1" for="relation_two">Relation</label>
+                        <input class="dynamic1 validRequire" type="text" id="relation_two" name="relation2">
+                    </td>
+                    <td id="relation2-err" class="error"></td>
+
+                </tr>
+
+            </table>
+        </fieldset><br>
+
+        <fieldset>
+            <legend><b>Preferance</b></legend>
+
+            <label for="city">Prefered location </label>
+            <select class="validDropdown" id="ct" name="city">
+                <option value="selectone">select-one</option>
+                <% for(let p=0;p<data6.length;p++) { %>
+                    <option value="<%= data6[p].option_value %>">
+                        <%= data6[p].option_value %>
+                    </option>
+                    <% } %>
+            </select>
+                    <td><span id="city-err" class="error"></span></td>
+
+            </tr>
+
+            <table>
+                <tr>
+                    <td><label class="demo1" for="ec">Expected CTC</label></td>
+                    <td> <input class="dynamic1 validRequire " type="text" id="ec" name="ec"
+                           >
+                    </td>
+                </tr><br>
+                <tr id="ec-err" class="error"></tr>
+
+                <tr>
+                    <td><label class="demo1" for="cc">Current CTC</label></td>
+                    <td> <input class="dynamic1 validRequire" type="text" id="cc" name="cc"
+                            >
+                    </td><br>
+                </tr>
+                <tr id="cc-err" class="error"></tr>
+
+
+
+                <tr>
+                    <td><label class="demo1" for="np"> Notice Period </label></td>
+                    <td><input class="dynamic1 validRequire" type="text" id="np" name="np"
+                           >
+                    </td>
+                </tr><br>
+                <tr id="np-err" class="error"></tr>
+
+            </table>
+            </div>
+            <tr>
+                <label for="dep">Department </label>
+                <select class="validDropdown" id="dep" name="dep">
+                    <option value="selectone"> select-one</option>
+                    <% for(let r=0;r<data7.length;r++) { %>
+                        <option value="<%= data7[r].option_value %>">
+                            <%= data7[r].option_value %>
+                        </option>
+                        <% } %>
+                </select>
+                <td><span id="dep-err" class="error"></span></td>
+
+
+            </tr>
+    </form>
+    <tr>
+        <td>
+            <input type="submit" name="sbmt" id="sbmt" value="Submit it" >
+        </td>
+    </tr>
+
+</body>
+<script>
+
+    function addcourse() {
+        let data = "";
+
+        data += `<div class="custom">
+            <tr>
+                    <td><label for="nc">Name of Course</label></td>
+                    <td><select name="nc" id="nc">
+                        <% for(let k=0;k<data3.length;k++) {%>
+                        <option value="<%= data3[k].option_value%>"><%= data3[k].option_value %></option>
+                        <% } %>    
+                    </select>
+                    </td>
+                    <td><label for="nb">Name of Board</label>
+                        <input class="dynamic1" type="text" id="nb" name="nb">
+                    </td>
+                    <td><label class="demo1" for="py">Passing Year</label>
+                        <input class="dynamic1" type="text" id="py" name="py">
+                    </td>
+                    <td><label class="demo1" for="percentage">Percentage</label>
+                        <input class="dynamic1" type="text" id="percentage" name="percentage">
+                    </td>
+                </tr>
+</div>`;
+
+
+        let course = document.createElement("div");
+        course.innerHTML = data;
+        document.getElementById("choose_course").appendChild(course);
+    }
+
+    function removecourse() {
+        // document.getElementsByClassName("custom")[0].innerHTML = "";
+        document.getElementById("choose_course").innerHTML = "";
+    }
+    function addexp() {
+        let data1 = "";
+
+        data1 += `<div class="custom">
+            <tr>
+                <td><label for="cn">Company Name </label>
+                <input class="dynamic1" type="text" id="cn" name="cn">
+            </td>
+                <td><label class="demo1" for="salary">Salary Per Annum</label>
+                <input class="dynamic1" type="text" id="Salary" name="Salary">
+            </td>
+                <td><label class="demo1" for="sd">From</label>
+                <input class="dynamic1" type="date" id="sd" name="sd">
+            </td>
+                <td><label class="demo1" for="ld">To</label>
+                <input class="dynamic1" type="date" id="ld" name="ld">
+            </td>
+            </tr>
+            </div>`;
+
+        let experience = document.createElement("div");
+        experience.innerHTML = data1;
+        document.getElementById("choose_experience").appendChild(experience);
+    }
+    function removeexp() {
+        // document.getElementsByClassName("custom")[0].innerHTML = "";
+        document.getElementById("choose_experience").innerHTML = "";
+    }
+
+    async function changecity() {
+        var states = document.getElementById("state_menu");
+        //console.log(states);
+        var state_id = states.value;
+        // console.log(state_id);
+
+        const qry_string = await fetch(`/changecity/?state_id=${state_id}`);
+        const city = await qry_string.json();
+        // console.log(city);
+
+        updatecity(city);
+    }
+
+    function updatecity(city) {
+        const ct_dropdown = document.getElementById("ct");
+        ct_dropdown.innerHTML = "";
+
+        for (let k = 0; k < city.length; k++) {
+            const option = document.createElement('option');
+            option.value = city[k].city_name;
+            option.text = city[k].city_name;
+            ct_dropdown.appendChild(option);
+        }
+    }
+
+   
+    function validate() {
+    //     console.log("called");
+    //     var data1 = document.getElementById("fname").value;
+    //     var data2 = document.getElementById("lname").value;
+    //     var data3 = document.getElementById("designation").value;
+    //     var data4 = document.getElementById("email").value;
+    //     var data5 = document.getElementById("adr1").value;
+    //     var data6 = document.getElementById("adr2").value;
+    //     var data7 = document.getElementById("pn").value;
+    //     var data8 = document.getElementById("zpc").value;
+    //     var gndr;
+    //     var data_gndr = document.getElementsByName("gender");
+    //     for (let i = 1; i < data_gndr.length; i++) {
+    //         if (data_gndr[i].checked) {
+    //             gndr = data_gndr[i];
+    //         }
+    //     }
+    //     var dob = document.getElementById("dob").value;
+    //     var data9 = document.getElementById("nc").value;
+    //     var data10 = document.getElementById("nb").value;
+    //     var data11 = document.getElementById("py").value;
+    //     var data12 = document.getElementById("percentage").value;
+    //     var data13 = document.getElementById("cn").value;
+    //     var data14 = document.getElementById("ctc").value;
+    //     var data15 = document.getElementById("sd").value;
+    //     var data16 = document.getElementById("ld").value;
+    //     var data17 = document.getElementById("n_one").value;
+    //     var data18 = document.getElementById("cno_one").value;
+    //     var data19 = document.getElementById("relation_one").value;
+    //     var data20 = document.getElementById("n_two").value;
+    //     var data21 = document.getElementById("cno_two").value;
+    //     var data22 = document.getElementById("relation_two").value;
+    //     var data23 = document.getElementById("ec").value;
+    //     var data24 = document.getElementById("cc").value;
+    //     var data25 = document.getElementById("np").value;
+    //     if (data1 == "" || data2 == "" || data3 == "" || data4 == "" || data5 == "" || data6 == "" || data7 == "" || data8 == "" || dob == "" || data9 == "" || data10 == "" || data11 == "" || data12 == "" || data13 == "" || data14 == "" || data15 == "" || data16 == "" || data17 == "" || data18 == "" || data19 == "" || data20 == "" || data21 == "" || data22 == "" || data23 == "" || data24 == "" || data25 == "") {
+    //         if (data1 == "") {
+    //             document.getElementById("fname-err").innerHTML = "Firstname is required";
+    //             return false;
+    //         }
+    //         if (data2 == "") {
+    //             document.getElementById("lname-err").innerHTML = "Lastname is required";
+    //             return false;
+    //         }
+    //         if (data3 == "") {
+    //             document.getElementById("designation-err").innerHTML = "Designation is required";
+    //             return false;
+    //         }
+    //         if (data4 == "") {
+    //             document.getElementById("email-err").innerHTML = "E-mail is required";
+    //             return false;
+    //         }
+    //         if (data5 == "") {
+    //             document.getElementById("adr1-err").innerHTML = "Adr-1 is required";
+    //             return false;
+    //         }
+    //         if (data6 == "") {
+    //             document.getElementById("adr2-err").innerHTML = "Adr-2 is required";
+    //             return false;
+    //         }
+    //         if (data7 == "") {
+    //             document.getElementById("phone-err").innerHTML = "Phone-no is required";
+    //             return false;
+    //         }
+    //         if (data8 == "") {
+    //             document.getElementById("zip-err").innerHTML = "Zip-code is required";
+    //             return false;
+    //         }
+    //         if (gndr == "") {
+    //             document.getElementById("gndr-err").innerHTML = "Gender is required";
+    //             return false;
+    //         }
+    //         if (dob == "") {
+    //             document.getElementById("birth-err").innerHTML = "Date of birth is required";
+    //             return false;
+    //         }
+    //         if (data10 == "") {
+    //             document.getElementById("board-err").innerHTML = "Board-name is required";
+    //             return false;
+    //         }
+    //         if (data11 == "") {
+    //             document.getElementById("yr-err").innerHTML = "Year is required";
+    //             return false;
+    //         }
+    //         if (data12 == "") {
+    //             document.getElementById("per-err").innerHTML = "percentage is required";
+    //             return false;
+    //         }
+    //         if (data13 == "") {
+    //             document.getElementById("cn-err").innerHTML = "Company-name is required";
+    //             return false;
+    //         }
+    //         if (data14 == "") {
+    //             document.getElementById("salary-err").innerHTML = "Salary is required";
+    //             return false;
+    //         }
+    //         if (data15 == "") {
+    //             document.getElementById("sd-err").innerHTML = "Starting-date is required";
+    //             return false;
+    //         }
+    //         if (data16 == "") {
+    //             document.getElementById("ld-err").innerHTML = "Ending-date is required";
+    //             return false;
+    //         }
+    //         if (data17 == "") {
+    //             document.getElementById("name-err").innerHTML = "Name is required";
+    //             return false;
+    //         }
+    //         if (data18 == "") {
+    //             document.getElementById("cnum-err").innerHTML = "Number is required";
+    //             return false;
+    //         }
+    //         if (data19 == "") {
+    //             document.getElementById("re-err").innerHTML = "Relation is required";
+    //             return false;
+    //         }
+    //         if (data20 == "") {
+    //             document.getElementById("nm-err").innerHTML = "Name is required";
+    //             return false;
+    //         }
+    //         if (data21 == "") {
+    //             document.getElementById("cno-err").innerHTML = "Number is required";
+    //             return false;
+    //         }
+    //         if (data22 == "") {
+    //             document.getElementById("ref-err").innerHTML = "Relation is required";
+    //             return false;
+    //         }
+    //         if (data23 == "") {
+    //             document.getElementById("pref-err").innerHTML = "Expected ctc is required";
+    //             return false;
+    //         }
+    //         if (data24 == "") {
+    //             document.getElementById("cc-err").innerHTML = "Current ctc is required";
+    //             return false;
+
+    //         }
+    //         if (data25 == "") {
+    //             document.getElementById("notice-err").innerHTML = "Notice period is required";
+    //             return false;
+    //         }
+    //     }
+    //     else {
+    //         return true;
+    //     }
+    // }
+    function checktechno() {
+        var flag = 0;
+        var technology = document.getElementsByClassName("data5");
+        //console.log(technology);
+        for (let i = 0; i < technology.length; i++) {
+            if (technology[i].checked) {
+                console.log(technology[i].value );
+                var efficiency = document.getElementsByName(technology[i].value + "a");
+                console.log(efficiency);
+                for (let j = 0; j < 3; j++) {
+                    if (efficiency[j].checked == true) {
+                        flag++;
+                    };
+                }
+                if (flag == 0) {
+                     document.getElementById("tcn-err").innerHTML = "Technolgy efficiency is required";
+                    //alert("error");
+                    return false;
+                }
+                else {
+                    document.getElementsByClassName("error")[0].innerHTML = "";
+                    flag = 0;
+                }
+            }
+        }
+        return true;
+    }
+    function checklan() {
+        var l_flag = 0;
+        var language = document.getElementsByClassName("data4");
+        //console.log(language);
+        for (let i = 0; i < language.length; i++) {
+            if (language[i].checked) {
+                //console.log(language[i]);
+                var efficiency_1 = document.getElementById(language[i].value + "r");
+                var efficiency_2 = document.getElementById(language[i].value + "w");
+                var efficiency_3 = document.getElementById(language[i].value + "s");
+                    if (efficiency_1.checked == true || efficiency_2.checked == true || efficiency_3.checked == true) {
+                        l_flag++;
+                    };
+                
+                if (l_flag == 0) {
+                     document.getElementById("ln-err").innerHTML = "language efficiency is required";
+                    //alert("error");
+                    return false;
+                }
+                else {
+                    document.getElementById("ln-err").innerHTML = "";
+                    l_flag = 0;
+                }
+            }
+            
+        }
+        return true;
+    }
+
+
+
+        var language = document.getElementsByClassName("data4");
+        
+        for(let j=0;j<language.length;j++) {          
+             var lan = document.getElementById(language[j].value + "e");
+
+            if (language[j].checked == true) {
+               console.log(language[j]);
+                var efficiency_1 = document.getElementById(language[j].value + "r");
+                var efficiency_2 = document.getElementById(language[j].value + "w");
+                var efficiency_3 = document.getElementById(language[j].value + "s");
+                console.log(efficiency_1.checked,efficiency_2.checked,efficiency_3.checked);
+                if (efficiency_1.checked == true || efficiency_2.checked == true || efficiency_3.checked == true) {
+                    // .innerHTML = "";
+                    lan.innerHTML = "";
+                }
+                else {
+                    lan.innerHTML = "language efficiency is required";
+                }
+            }
+            else  {
+                //console.log(language[i]);
+                lan.innerHTML = "";
+                l_flag = 0;
+            }
+        }
+        var flag = 0;
+        var technology = document.getElementsByClassName("data5");
+        console.log(technology);
+        for (let i = 0; i < technology.length; i++) {
+        var tech = document.getElementById(technology[i].value + "e");
+        // console.log(tech);
+
+            if (technology[i].checked == true) {
+                //console.log(technology[i].value );
+                var efficiency = document.getElementsByName(technology[i].value + "a");
+                //console.log(efficiency);
+                for (let j = 0; j < efficiency.length; j++) {
+                    if (efficiency[j].checked == true) {
+                        flag++;
+                    };
+                }
+                if (flag == 0) {
+                    tech.innerHTML = "Technolgy efficiency is required";
+                    //alert("error");
+                }
+                else {
+                     tech.innerHTML = "";
+                    flag = 0;
+                }
+            }
+            else if(technology[i].checked == false){
+                tech.innerHTML = "";
+                //console.log(technology[i].checked);
+            }
+        }
+            var name = document.getElementsByClassName("name_validate");
+            let value = name[i].value;
+                        if(value.match(name_regex)) {
+                        let printError = document.getElementById(name[i].name + "-err");
+                        printError.innerHTML = `${data[i].name} contains number`;
+                        }
+                        else{ 
+                            let printError = document.getElementById(name[i].name + "-err");
+                        printError.innerHTML = "";
+                        }
+
+                var gndr;
+                var m_gndr = document.getElementById("m");
+                var fm_gndr = document.getElementById("fm");
+                var oth_gndr = document.getElementById("oth");
+               
+                    if (m_gndr.checked == false && fm_gndr.checked == false && oth_gndr.checked == false) {
+                        document.getElementById("gender-err").innerHTML = "Gender is required";        
+                    }
+                    else{
+                        document.getElementById("gender-err").innerHTML = "";        
+                    }
+                
+            
+             return false;
+
+            }
+        
+    var name = document.getElementsByClassName("name_validate");
+    let value = name[i].value;
+                if(value.match(name_regex)) {
+                let printError = document.getElementById(name[i].name + "-err");
+                printError.innerHTML = `${data[i].name} contains number`;
+                }
+                else{ 
+                    let printError = document.getElementById(name[i].name + "-err");
+                printError.innerHTML = "";
+                }
+
+        
+      
+
+    
+    function allvalidate() {
+        let validate_chk = validate();
+        let checklan_chk = checklan();
+        let checktechno_chk = checktechno();
+        //console.log(validate_chk,checklan_chk,checktechno_chk);
+        if (validate_chk && checklan_chk && checktechno_chk) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+
+    var today = new Date();
+    var date = today.getDate();
+    var month = today.getMonth() + 1;
+    var year = today.getUTCFullYear()-18;
+    if (month < 10) {
+        month = "0" + month
+    }
+    if (date < 10) {
+        date = "0" + date
+    }
+    var maxdate = year + "-" + month + "-" + date;
+
+    document.getElementById("dob").setAttribute("max", maxdate);
+    // document.getElementById("sd").setAttribute("max", maxdate);
+    function selectdate() {
+
+        var joining_date = document.getElementById("sd").value;
+        // console.log(joining_date + (3600*1000*24) );
+        document.getElementById("ld").setAttribute("min", joining_date);
+    }
+
+    function activetechno(id) {
+         var tech_name = document.getElementById(id);
+         //console.log(tech_name);
+        //console.log(technologies)
+        
+            if (tech_name.checked) {
+                //console.log(tech_name.value);
+                document.getElementsByName(tech_name.value + "a").forEach(e => {
+                    e.disabled = false;
+                    //console.log(e);
+                })       
+            }
+            else {
+                document.getElementsByName(tech_name.value + "a").forEach(e => {
+                    e.checked = false;
+                })
+               
+                document.getElementsByName(tech_name.value + "a").forEach(e => {
+                    e.disabled = true;
+                })
+               
+        }
+    }
+
+    function activatelan(id) {
+       let lan_name = document.getElementById(id);
+            if (lan_name.checked) {
+                //console.log(lan_name.value);
+                document.getElementById(lan_name.value + "r").disabled = false;
+                document.getElementById(lan_name.value + "w").disabled = false;
+                document.getElementById(lan_name.value + "s").disabled = false;                
+            }
+            else {
+                document.getElementById(lan_name.value + "r").checked = false;
+                document.getElementById(lan_name.value + "w").checked = false;
+                document.getElementById(lan_name.value + "s").checked = false; 
+               
+                document.getElementById(lan_name.value + "r").disabled = true;
+                document.getElementById(lan_name.value + "w").disabled = true;
+                document.getElementById(lan_name.value + "s").disabled = true; 
+            }
+        
+    }
+</script>
+
+</html>

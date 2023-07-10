@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moredata</title>
+</head>
+<style>
+a {
+    text-decoration: none;
+    font-size: larger;
+}
+
+button {
+    width: 30px;
+    height: 40px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 200px;
+    margin-top: 20px;
+}
+
+td {
+    border: 2px solid black;
+    color: rgb(255, 0, 174);
+    padding-left:20px;
+    padding-right: 10px;
+    }
+
+th {
+    font-weight: bold;
+    color: blue;
+    background-color: hotpink;
+}
+
+</style>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>education_id</th>
+                <th>course_name</th>
+                <th>board_name</th>
+                <th>passing_year</th>
+                <th>percentage</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            <% for(let i=0;i< edu_data.length;i++) {%>
+                <tr>
+                    <td>
+                        <%= edu_data[i].id %>
+                    </td>
+                    <td>
+                        <%= edu_data[i].education_id %>
+                    </td>
+                    <td>
+                        <%= edu_data[i].course_name%>
+                    </td>
+                    <td>
+                        <%= edu_data[i].board_name%>
+                    </td>
+                    <td>
+                        <%= edu_data[i].passing_year%>
+                    </td>
+                    <td>
+                        <%= edu_data[i].percentage%>
+                    </td>
+                    <% } %>
+                </tbody>
+              </table> 
+              <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>experience_id</th>
+                        <th>company_name</th>
+                        <th>ctc</th>
+                        <th>start_date</th>
+                        <th>end_date</th>
+                    </tr>
+                </thead>
+        
+        
+                <tbody>
+                    <% for(let i=0;i< exp_data.length;i++) {%>
+                        <tr>
+                            <td>
+                                <%= exp_data[i].id %>
+                            </td>
+                            <td>
+                                <%= exp_data[i].experience_id %>
+                            </td>
+                            <td>
+                                <%= exp_data[i].company_name%>
+                            </td>
+                            <td>
+                                <%= exp_data[i].ctc%>
+                            </td>
+                            <td>
+                                <%= exp_data[i].start_date%>
+                            </td>
+                            <td>
+                                <%= exp_data[i].end_date%>
+                            </td>
+                            
+                            <% } %>
+                        </tbody>
+                      </table>   
+                      <table>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>language_id</th>
+                                <th>language_name</th>
+                                <th>can_read</th>
+                                <th>can_write</th>
+                                <th>can_speak</th>
+                            </tr>
+                        </thead>
+                      <tbody>
+                            <% for(let i=0;i< lan_data.length;i++) {%>
+                                <tr>
+                                    <td>
+                                        <%= lan_data[i].id %>
+                                    </td>
+                                    <td>
+                                        <%= lan_data[i].language_id %>
+                                    </td>
+                                    <td>
+                                        <%= lan_data[i].language_name%>
+                                    </td>
+                                    <td>
+                                        <%= lan_data[i].can_read%>
+                                    </td>
+                                    <td>
+                                        <%= lan_data[i].can_write%>
+                                    </td>
+                                    <td>
+                                        <%= lan_data[i].can_speak%>
+                                    </td>
+                                    <% } %>
+                        </tbody>
+                      </table> 
+                      <table>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>technology_id</th>
+                                <th>technology_name</th>
+                                <th>technology_efficiency</th>
+                            </tr>
+                        </thead>
+                      <tbody>
+                            <% for(let i=0;i< tcn_data.length;i++) {%>
+                                <tr>
+                                    <td>
+                                        <%= tcn_data[i].id %>
+                                    </td>
+                                    <td>
+                                        <%= tcn_data[i].technology_id %>
+                                    </td>
+                                    <td>
+                                        <%= tcn_data[i].technology_name%>
+                                    </td>
+                                    <td>
+                                        <%= tcn_data[i].technology_efficiency%>
+                                    </td>
+                                    
+                                    <% } %>
+                        </tbody>
+                      </table>   
+                      <table>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>refrence_id</th>
+                                <th>refrence_name</th>
+                                <th>refrence_con</th>
+                                <th>refrence_reletion</th>
+                            </tr>
+                        </thead>
+                      <tbody>
+                            <% for(let i=0;i< ref_data.length;i++) {%>
+                                <tr>
+                                    <td>
+                                        <%= ref_data[i].id %>
+                                    </td>
+                                    <td>
+                                        <%= ref_data[i].reference_id %>
+                                    </td>
+                                    <td>
+                                        <%= ref_data[i].reference_name%>
+                                    </td>
+                                    <td>
+                                        <%= ref_data[i].reference_con%>
+                                    </td>
+                                    <td>
+                                        <%= ref_data[i].reference_reletion%>
+                                    </td>
+                                    
+                                    <% } %>
+                        </tbody>
+                      </table> 
+                      <table>
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>prefrence_id</th>
+                                <th>refrence_location</th>
+                                <th>c_ctc</th>
+                                <th>e_ctc</th>
+                                <th>department</th>
+                            </tr>
+                        </thead>
+                      <tbody>
+                            <% for(let i=0;i< pref_data.length;i++) {%>
+                                <tr>
+                                    <td>
+                                        <%= pref_data[i].id %>
+                                    </td>
+                                    <td>
+                                        <%= pref_data[i].preference_id %>
+                                    </td>
+                                    <td>
+                                        <%= pref_data[i].preference_location%>
+                                    </td>
+                                    <td>
+                                        <%= pref_data[i].c_ctc%>
+                                    </td>
+                                    <td>
+                                        <%= pref_data[i].e_ctc%>
+                                    </td>
+                                    <td>
+                                        <%= pref_data[i].department%>
+                                    </td>
+                                    
+                                    <% } %>
+                        </tbody>
+                      </table>           
+</body>
+</html>
